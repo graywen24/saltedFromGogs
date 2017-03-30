@@ -1,0 +1,9 @@
+#
+# Some variables to be used with the alchemy-saltstack package
+#
+
+# Variables for CDE bootstrap and the initial installation of the saltmaster
+# using the scripts in /srv/salt/cde/bootstrap/bash
+as_deb="alchemy-saltstack_SALTSTACK_PACKAGE_VERSION_amd64.deb"
+as_bootstrap_path="/var/storage/repo-a1.cde.1nc/repos/dev/exclusive/trusty"
+as_storage_path="/var/storage/saltmaster-a1.cde.1nc/"

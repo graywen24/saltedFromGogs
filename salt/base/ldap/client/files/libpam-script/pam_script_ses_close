@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# PAM_USER, PAM_RUSER, PAM_RHOST, PAM_SERVICE, PAM_AUTHTOK,
+# PAM_OLDAUTHTOK, PAM_TTY, PAM_TYPE
+
+if [ -f /etc/default/sshd.detemple ]; then
+        . /etc/default/sshd.detemple
+        if [ $rmhomedir == 0 ]; then
+          exit 0
+        fi
+fi
+
+if [ ! "$PAM_SERVICE" == "sshd" ]; then
+  # logger "LOGOUT USER=$PAM_USER : Keeping homedir : SERVICE=$PAM_SERVICE"
+  exit 0
+fi
+
+# local user? Bye bye my dear
+grep -q -E "^$PAM_USER:" /etc/passwd && exit 0
+
+# remove
+REMAIN=$(/usr/bin/who -s | awk -v count=0 -v user="$PAM_USER" '$1 == user {count++} END{print count}')
+if [ -d /home/$PAM_USER ] && [ $REMAIN == 0 ]; then
+  rm -rf /home/$PAM_USER
+  logger "LOGOUT USER=$PAM_USER : Removing homedir : SERVICE=$PAM_SERVICE"
+else
+  logger "LOGOUT USER=$PAM_USER : no homedir or multiple sessions."
+fi

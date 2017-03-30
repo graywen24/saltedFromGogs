@@ -1,0 +1,8 @@
+Files: *
+Copyright: 2015 1NetDevOps@1-net.com.sg
+License: Commercial
+
+Files: debian/*
+Copyright: 2015 DevOps 1Net <1NetDevOps@1-net.com.sg>
+License: Commercial
+

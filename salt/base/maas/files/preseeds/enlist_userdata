@@ -1,0 +1,224 @@
+#cloud-config
+
+system_info:
+   package_mirrors:
+     - arches: [i386, amd64]
+       search:
+         primary:  ["http://{{main_archive_hostname}}{{main_archive_directory}}"]
+         security: ["http://{{main_archive_hostname}}{{main_archive_directory}}"]
+       failsafe:
+         primary:  "http://archive.ubuntu.com/ubuntu"
+         security: "http://security.ubuntu.com/ubuntu"
+     - arches: [default]
+       search:
+         primary:  ["http://{{ports_archive_hostname}}{{ports_archive_directory}}"]
+         security: ["http://{{ports_archive_hostname}}{{ports_archive_directory}}"]
+       failsafe:
+         primary:  "http://ports.ubuntu.com/ubuntu-ports"
+         security: "http://ports.ubuntu.com/ubuntu-ports"
+
+apt_sources:
+  - source: "deb http://{{main_archive_hostname}}/cde/maas trusty main"
+    key: |
+      -----BEGIN PGP PUBLIC KEY BLOCK-----
+      Version: GnuPG v1
+
+      mQINBFQaTHABEADerpk96SM4fzjcrxSBTuaipmsAxUlcPN5j6UOhvN2Q3wnl5bXi
+      IJRMBLzR8QGimqrwXb5OCLCXCpnVhjL8qyiGyaQsRPf5LiXzChRnRSFp4LkOSa4n
+      o/BovEtHB0qL4V0b6+JDRM18ir/cyXMZ9IbDOSAWSiTxAGARn93uDJFV0tuqX+Df
+      Q9itqRO24bB9v+EYdmKBJTwHuH/xLitMiXAYEw89+/NwuDyZfoKSLMJL0hwVxEm9
+      4F+R+BvjGiLk5EHCaGir257fp0qWcXG/NgSzCkmz8/nQA7BFTIl5eHORMa/P64OC
+      gABMh/hOuQU6R3MLoYJIQV/+L2OYJgre7JYMK6mUjFeDIuOiAQFiZPWDGpyCV50w
+      uVF/Cy6HLzUVcj5GWFFa45G63J34pvWUVbRVG9oXLrjTr+6CfmwVC0S3UQ+AWPV/
+      n8uhCzSYrxunz9rivk0Q5R7P/Y8EqECx1+gAJQQW73u+7vUCuuSiaWRloCFcFEAf
+      bhjXV6ZFSOhalSEVEvNr1oYf09FYxR+oJbjbtyB9ytn2ejGOMHCnEj7hQsjA6s7i
+      tjfD4sUtSdx3Iq92WVYQXYIK0afyvqhnriBLXilJmWwnvk4IREQZ938Yj1wAggE0
+      ic4aUg5ML93Ekei4vqEk73hqxraFoWnfZNHICsgPRRPjbQXASmX4TUPJPwARAQAB
+      tFNDbG91ZCBTZXJ2aWNlcyAxTmV0IChQYWNrYWdlIFNpZ25pbmcgS2V5KSA8MU5l
+      dENsb3VkTkFkdmFuY2VkU2VydmljZXNAMS1uZXQuY29tLnNnPokCNwQTAQoAIQUC
+      VBpMcAIbAwULCQgHAwUVCgkICwUWAwIBAAIeAQIXgAAKCRAknEpmbL5dLbQHEACa
+      GHQYPQwG3NwAonbNz5uTRssvXwatuh7NMXya399ib+YtolViZel2YYpBzMZppWYR
+      3TudcE4oNdJtp/EkFKizhjcHWV0Wiu2qOtFuWoMKzngbaGHm7W96DI3hqJOPNGpB
+      kYIRpkcAOQX2GFun5PZS/ewlCz6bRJLzGsaDHmLzf1sTwBYY0Sl6sz3DwRgylxsh
+      +EUSZw90CwMB1MNuDW013+OM7IoiMx/OTZk8T/NooHgDOiXp8plmOSrFlL6AxVQA
+      sKQDf97r1NkgeOqZKqz3p+Oin14ZjN/JJsQAQ4iC8N4SL8VBuaf+KJKCb37jjKWW
+      5j5GWp8IFrRzvPFKgeQtR59D8EdC16GZnzG3okDZVFeWfKP8DXK9o6udsEKpOPQp
+      5o5DKZpy/zLcVWJKPYJyDTyLhnn9IP2GCJ0xRTYTt2Amg/kPp8nCBYPbtzRNUd3L
+      Xl/bIwk/v+KJnUYXVeS65ldS3/uE7pzjwrB8U0iEBVTTqbn/aJESCfxQ/zHdad44
+      uC6tpvRal9NzB2AEEogQQwRaxJFswLtGwM8G1hrMVuY4VyRIzaPFzyJEASMd59c5
+      44Wa6Jh/CTvrf5V1ZglOpoImkJCPqy1l14Gl2Fcgf5pcYUn+Zk2WyTJr+18EETUM
+      lKTwKSMEH+gwKxRhtOkKHwV69knjNaxYToUR43iNMg==
+      =m5+9
+      -----END PGP PUBLIC KEY BLOCK-----
+
+misc_bucket:
+ - &maas_enlist |
+   ####  IPMI setup  ######
+   # If IPMI network settings have been configured statically, you can
+   # make them DHCP. If 'true', the IPMI network source will be changed
+   # to DHCP.
+   IPMI_CHANGE_STATIC_TO_DHCP="false"
+
+   # In certain hardware, the parameters for the ipmi_si kernel module
+   # might need to be specified. If you wish to send parameters, uncomment
+   # the following line.
+   #IPMI_SI_PARAMS="type=kcs ports=0xca2"
+
+   TEMP_D=$(mktemp -d "${TMPDIR:-/tmp}/${0##*/}.XXXXXX")
+   IPMI_CONFIG_D="${TEMP_D}/ipmi.d"
+   BIN_D="${TEMP_D}/bin"
+   OUT_D="${TEMP_D}/out"
+   PATH="$BIN_D:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+   mkdir -p "$BIN_D" "$OUT_D" "$IPMI_CONFIG_D"
+
+   load_modules() {
+      modprobe ipmi_msghandler
+      modprobe ipmi_devintf
+      modprobe ipmi_si ${IPMI_SI_PARAMS}
+      udevadm settle
+   }
+
+   add_bin() {
+      cat > "${BIN_D}/$1"
+      chmod "${2:-755}" "${BIN_D}/$1"
+   }
+   add_ipmi_config() {
+      cat > "${IPMI_CONFIG_D}/$1"
+      chmod "${2:-644}" "${IPMI_CONFIG_D}/$1"
+   }
+
+   # Example config: enable BMC remote access (on some systems.)
+   #add_ipmi_config "02-global-config.ipmi" <<"END_IPMI_CONFIG"
+   #Section Lan_Channel
+   #     Volatile_Access_Mode                    Always_Available
+   #     Volatile_Enable_User_Level_Auth         Yes
+   #     Volatile_Channel_Privilege_Limit        Administrator
+   #     Non_Volatile_Access_Mode                Always_Available
+   #     Non_Volatile_Enable_User_Level_Auth     Yes
+   #     Non_Volatile_Channel_Privilege_Limit    Administrator
+   #EndSection
+   #END_IPMI_CONFIG
+
+   add_bin "maas-ipmi-autodetect-tool" <<"END_MAAS_IPMI_AUTODETECT_TOOL"
+   {{for line in maas_ipmi_autodetect_tool_py.splitlines()}}
+   {{line}}
+   {{endfor}}
+   END_MAAS_IPMI_AUTODETECT_TOOL
+
+   add_bin "maas-ipmi-autodetect" <<"END_MAAS_IPMI_AUTODETECT"
+   {{for line in maas_ipmi_autodetect_py.splitlines()}}
+   {{line}}
+   {{endfor}}
+   END_MAAS_IPMI_AUTODETECT
+
+   add_bin "maas-moonshot-autodetect" <<"END_MAAS_MOONSHOT_AUTODETECT"
+   {{for line in maas_moonshot_autodetect_py.splitlines()}}
+   {{line}}
+   {{endfor}}
+   END_MAAS_MOONSHOT_AUTODETECT
+
+   add_bin "maas-enlist" <<"END_MAAS_ENLIST"
+   {{for line in maas_enlist_sh.splitlines()}}
+   {{line}}
+   {{endfor}}
+   END_MAAS_ENLIST
+
+   # we could obtain the interface that booted from the kernel cmdline
+   # thanks to 'IPAPPEND' (http://www.syslinux.org/wiki/index.php/SYSLINUX)
+   url="{{server_url}}"
+   host=""
+   dig_output=""
+   ip=$(ifconfig eth0 | awk '$1 == "inet" { sub("addr:","",$2); print $2; }') &&
+     [ -n "${ip}" ] && dig_output=$(dig +short -x $ip) && host=${dig_output%.}
+   # load ipmi modules
+   load_modules
+   pargs=""
+   if $IPMI_CHANGE_STATIC_TO_DHCP; then
+      pargs="--dhcp-if-static"
+   fi
+   power_type=$(maas-ipmi-autodetect-tool)
+   case "$power_type" in
+       ipmi)
+           power_params=$(maas-ipmi-autodetect --configdir "$IPMI_CONFIG_D" ${pargs} --commission-creds) &&
+             [ -n "${power_params}" ] && power_params=${power_params%.}
+           ;;
+       moonshot)
+           power_params=$(maas-moonshot-autodetect --commission-creds) &&
+             [ -n "${power_params}" ] && power_params=${power_params%.}
+           ;;
+   esac
+   # Try maas-enlist without power parameters on failure for older versions of
+   # maas-enlist without power parameter support
+   maas-enlist --serverurl "$url" ${host:+--hostname "${host}"} ${power_params:+--power-params "${power_params}" --power-type "${power_type}"}>/tmp/enlist.out ||\
+      maas-enlist --serverurl "$url" ${host:+--hostname "${host}"} >/tmp/enlist.out
+   if [ $? -eq 0 ]; then
+      msg="successfully enlisted to '$url'"
+      [ -n "$host" ] && msg="$msg with hostname '$host'" ||
+         msg="$msg without hostname"
+      echo
+      echo "=== $(date -R): $msg"
+      cat  /tmp/enlist.out
+      echo =============================================
+      user="ubuntu"
+      pass="ubuntu"
+
+      # echo "$user:$pass" | chpasswd
+      # touch /tmp/block-poweroff
+
+   else
+      user="ubuntu"
+      pass="ubuntu"
+
+      echo "$user:$pass" | chpasswd
+      bfile="/tmp/block-poweroff"
+      { echo "#!/bin/sh"; echo "touch $bfile"; } > /etc/profile.d/A01-block.sh
+      chmod 755 /etc/profile.d/A01-block.sh
+      echo
+      echo =============================================
+      echo "failed to enlist system maas server '$host'"
+      echo "sleeping 60 seconds then poweroff"
+      echo
+      echo "login with '$user:$pass' to debug and disable poweroff"
+      echo 
+      cat /tmp/enlist.out
+      echo =============================================
+      sleep 60
+      [ -e $bfile ] && exit 0
+   fi
+ - &write_poweroff_job |
+   cat >/etc/init/maas-poweroff.conf <<EOF
+   description "poweroff when maas task is done"
+   start on stopped cloud-final
+   console output
+   task
+   script
+     [ ! -e /tmp/block-poweroff ] || exit 0
+     /sbin/poweroff
+   end script
+   EOF
+   # reload required due to lack of inotify in overlayfs (LP: #882147)
+   initctl reload-configuration
+ - &write_systemd_poweroff_job |
+   cat >/lib/systemd/system/maas-poweroff.service <<EOF
+   [Unit]
+   Description=Poweroff when maas task is done
+   Wants=cloud-final.service
+   After=cloud-final.service
+   ConditionPathExists=!/tmp/block-poweroff
+
+   [Service]
+   ExecStart=/sbin/poweroff
+   EOF
+   # reload required due to lack of inotify in overlayfs (LP: #882147)
+   if [ -d /run/systemd/system ]; then
+       systemctl daemon-reload
+   fi
+
+
+packages: [ freeipmi-tools, openipmi, ipmitool ]
+output: {all: '| tee -a /var/log/cloud-init-output.log'}
+runcmd:
+ - [ sh, -c, *maas_enlist ]
+ - [ sh, -c, *write_poweroff_job ]
+ - [ sh, -c, *write_systemd_poweroff_job ]

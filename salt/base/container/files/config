@@ -1,0 +1,20 @@
+# {{ pillar.defaults.hint }}
+
+# Common configuration
+lxc.include = /usr/share/lxc/config/{{ common }}
+
+# Container specific configuration
+lxc.rootfs = /var/lib/lxc/{{ container }}/rootfs
+lxc.mount = /var/lib/lxc/{{ container }}/fstab
+lxc.utsname = {{ container }}
+lxc.arch = {{ arch }}
+
+{% if network -%}
+# Network configuration
+lxc.include = /var/lib/lxc/{{ container }}/network.conf
+{%- endif %}
+
+{% if append -%}
+# Append local configuration
+lxc.include = /var/lib/lxc/{{ container }}/append.conf
+{% endif %}

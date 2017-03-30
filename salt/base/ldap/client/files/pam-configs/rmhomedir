@@ -1,0 +1,7 @@
+Name: activate rmhomedir
+Default: yes
+Priority: 900
+Session-Type: Additional
+Session:
+       	optional	pam_script.so onerr=success
+

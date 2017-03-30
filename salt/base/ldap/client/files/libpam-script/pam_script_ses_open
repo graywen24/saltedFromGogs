@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# you cant deconfigure this, so keep the script but do nothing for now
+# at least that will stop the errors in auth.log
+
+exit 0

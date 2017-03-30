@@ -1,0 +1,5 @@
+
+# point to the salt server for first time registration
+{% for line in salt.pillar.get('defaults:hosts:entries', []) -%}
+{{ line }}
+{% endfor %}

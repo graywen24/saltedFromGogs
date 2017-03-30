@@ -1,0 +1,16 @@
+# {{ pillar.defaults.hint }}
+
+{% set config = salt['alchemy.elastic']() -%}
+cluster.name: {{ config.clustername }}
+node.name: {{ grains.fqdn }}
+node.rack: lxc_container
+node.master: {{ config.allow_master }}
+node.data: {{ config.allow_data }}
+path.data: {{ config.data_dirs|join(',') }}
+path.logs: {{ config.log_dir }}
+bootstrap.mlockall: {{ config.memory_lock }}
+network.host: {{ config.elasticip }}
+http.port: {{ config.http_port }}
+discovery.zen.minimum_master_nodes: 2
+discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.unicast.hosts: [{{ config.masterlist }}]

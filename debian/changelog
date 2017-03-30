@@ -1,0 +1,255 @@
+alchemy-saltstack (1.0-11) stable; urgency=medium
+
+  * 0a7509f: Ensure the top configuration is specific
+  * 2fce4af: Name the cluster bbox
+  * d44901f: Add host configuration values
+  * 14592f4: Set additional servers not to be enlisted in MAAS
+  * cceab5c: Add cluster name variable in MAAS
+  * 157f716: Overlay settings for CDE when in BBOX environment
+  * 8688ddf: Enhance apt configuration handling
+  * a7d0160: Extend curtin installer procedures
+  * 8c1f496: Group required packages installation list
+  * ef4c443: Load usb blockdevice modules when starting
+  * 87890e1: Prevent cleanup when recurse config directories
+  * b3ef290: Change formatting
+  * 9dcf398: Prevent maas admin creation if already exists
+  * db40a01: Add debug commissioning script to collect more info
+  * 376bdec: Enhance partition helper script
+  * 82062a9: Provide sample script for blockdevice sorting
+  * 88f4b37: Allow additional aliases to be set in extras pillar config
+  * a3aa19c: Provide configuration snippet for local time fallback
+  * 1927255: Ensure debconf-utils are installed before preconfigure
+  * 2245602: Drop node-a1 from dhcp configuration
+  * 95b3035: Fix formatting of source file
+  * 3218de3: Change key for HA network so something more generic
+  * d176d4b: Add helper script/wrapper to start a local webserver
+  * 4812eee: Add runner to enlist hosts in MAAS
+  * 7b65c86: Add information for the build script
+  * 70afd42: Add configuration for virtual hosts
+  * 4b2b070: Add package default variables to ease CDE bootstrap
+  * cc987fb: Extend enlisting templates
+  * 194ba67: new: add a postinst script that takes care about setting up test environments by calling the mktest script
+  * 453943d: fix: several fixes to the initial cde bootstrap scripts
+  * 5e5f42a: fix: import gpg key unless its already imported
+  * 3bd749b: fix: install wget with the container, not within the salt deployment
+  * 84fa41c: fix: add ip addresses for micros-a1 and ess-a1 to the initial hosts file so that function does not need DNS at all
+  * 51fb736: new: allow rewrite of ip address based filenames
+  * 43ef263: fix: typo in filename
+  * 662e8a9: new: script to ensure ip configuration for production and testing do not match
+  * 352a603: add: correct dhcp information for bbox zone
+  * de069bb: new: dns information for bbox environment
+  * 0e63c03: change: turn bbox into a real environment for development testing
+  * 9b0a4cc: change: ensure wget is installed before using it
+  * a784006: change: ensure the uefi directories exist and are linked into the public structure
+  * 1014845: change: add the maas files directory to the temp webroot so we can serve the alchemy package key
+  * d95e226: fix: refactor some container roles
+  * ee22896: fix: full apt dist-upgrade commandline to prevent interactiveness
+  * 64aaab5: fix: ip networks and broadcasts
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Fri, 12 Aug 2016 18:13:11 +0800
+
+alchemy-saltstack (1.0-10) stable; urgency=medium
+
+  * d735293: merged: saltstack module to work with maas
+  * 7dddbce: fix: new version number to include in cde bootstrap
+  * 5e11c8a: fix: no need for server_name - deleted
+  * a370e30: fix: fix wrong ostack domain in vstage config
+  * 8f6c958: Include vstage pillar and state tree in master configuration and top files
+  * 6248d00: Define and include dns configuration for the vstage environment
+  * 9f3833a: Define and include dhcp configuration for the vstage environment
+  * c10015e: Add configuration for vstage environment
+  * 6db4945: Refactor maas configuration values
+  * 9d134f4: Define and point resources for cde bootstrapping
+  * 45eb2ba: Add scripts and procedures for cde bootstrapping
+  * b3ae75e: Add gateway to container config if defined
+  * ceb51fa: Allow choosing of the lxc container profile while deploying containers
+  * fd9af02: fix create of the veth vname and the handling of container bind mounts
+  * 054e319: streamline the Maas deployment procedures
+  * 3027a05: Fix possible hickup in the generation of the apache config file for the repo server
+  * 34cba1e: Dont include the minions interface in the peer list
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Thu, 10 Mar 2016 17:48:52 +0800
+
+alchemy-saltstack (1.0-09) stable; urgency=medium
+
+  * add compute-a3 and compute-a4 to nhb
+  * add to dns
+  * add to dhcp
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Fri, 26 Feb 2016 17:48:52 +0800
+
+alchemy-saltstack (1.0-08) unstable; urgency=medium
+
+  * 5821f4d Enable new machines and vm's for neutron in the dns zone files
+  * 16de95f Add new neutron machines as vm's
+  * a06fd1a Add new metal neutron dhcp entries
+  * e7e771c Refix deverse neutron ip addresses
+  * d2681ed Install a vm via state
+  * f41add4 Adding definitions for neutron containers to be turned into machines and possibly vm's
+  * 8aeddb7 Finishing smarthost configuration
+  * 8c677ed Some more simple test states
+  * 5a0c43e Add orchestration state for cdos deployment
+  * 8c862dd Add orchestration state for the baseline - roles and core states, users and sshd
+  * 5aff915 Add basic smarthost configuration
+  * 9bfa18a Add more sync operations also for grains modules, pillar refresh and mine updates
+  * 6ec22e5 Add apikey from defa configuration to template
+  * 37c2738 Finalize and update cdos database setup
+  * 5be8c43 Move cdos config into nhb environment - its a local service
+  * 891fae8 Add apikey to defa configuration info
+  * e71d8b6 Add saltmine and smarthost configuration, move cdos into nhb
+  * 85c3a38 Configure basic saltmine functions
+  * 9283357 Move defa configuration to cdos config
+  * 50a7c06 Divert highstate for micros-aX to ensure only one dhcp server is available until we can make this HA
+  * 2ffb495 Purge ntpdate - it's depricated, dude!
+  * f9cc665 Inject cdos hosts entries on cdos hosts ... watt?
+  * ec4548b Yong Joo wants more users in the sudoers files ...
+  * 6ad75fb Create scripts from pillar config to enlist new machines in maas
+  * b7d461b Provide a generic way to install tar based software packages via states - done for java and nodejs
+  * d5d12e8 Edit default configuration bucket for containers if set in the pillar
+  * 8290032 First attempt for a cdosdb state
+  * ed17429 Accept all changes, especially cdos temp nodes configuration
+  * 4c9405d comm-a1 needs a default gateway to talk to internet services
+  * c5b45e1 Add node-a1 for testing in bbox and add cdosxx-tx nodes for initial cdos deployment
+  * 695fb5d Divert container and host configuration for bbox environment
+  * fe42a9f Add global 2fa configuration
+  * 97566f5 Create states and configuration for installation of the cdos application server
+
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Thu, 15 Oct 2015 17:49:18 +0800
+
+alchemy-saltstack (1.0-07) unstable; urgency=medium
+
+  * 957e2b7 Add sms and 2fa states
+  * 9713f15 Remove more kernel log options from container syslogs
+  * 41028df Adding more installation prerequisites for neutron
+  * 37676b4 Correctly name ostack network domain
+  * 578cb5f Make installation of packages and loading of modules configurable in hosts and containers; also ensure modules are persisted
+  * f5ad684 ldap: replace old cert which got invalid on ip address change and include core.ca as a requirement
+  * 28cea92 Fix small issues and remove unused files
+  * 7bb73d2 Ensure all leftover files have been removed
+  * 7e15d90 Configure proper development repo for bbox environment
+  * 3460046 Add default keypair for deployed machines - will be copied by maas on deployment
+  * c68388e Add default gateways to selected containers - stupid maas cant even install without one :-/
+  * 7e83f59 Add maas enlisting configuration values
+  * de8cdb2 Add script to enlist metail boxes for an environment with maas
+  * 8f34cf7 Add function to call for debug inspection
+  * cc7b8b5 Fix missing and wrong dns entries
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Wed, 07 Oct 2015 19:08:42 +0800
+
+alchemy-saltstack (1.0-06) unstable; urgency=medium
+
+  * c698a04 Begin to define orchestration stages
+  * 136df13 Tune top file towards highstates
+  * 5c2457a Add order value to the state to ensure its executed first
+  * 1f65699 No need to run the hostname core state anymore
+  * ff9465b Group ldap related service machines by tag ldapsys
+  * b4a7ab3 Change name for the bootstrap machine to updated domain
+  * 4a9d49f Handle auth setup for the ubuntu user in a separate state file
+  * 2e32d6c Allow sudo for ubuntu user on hosts with role ostack
+  * d6025e1 Adding all hosts to the ostack.nhb.1nc zone
+  * 2ab1a45 Okay, need both, gateway and post-up for now - but do not use the gateway when building containers
+  * 921e628 Fix network configuration states for black box only
+  * 175a060 Reacitvate booth dns servers
+  * c3516ba Fix maas hosts file setup during deployment to reach salt master
+  * 183384b Fix dhcpd configuration reflecting new network selection
+  * b60a248 add uefi management command
+  * f441569 manage resolv.conf on container creation
+  * d9cfb6d Move salt bootstrap url into pillar
+  * 68a0861 Make purge and destroy work with short containernames again
+  * c223545 Fix entries in initial hosts file
+  * 8028cd4 Fix salt file path after renaming
+  * 53cc247 start working on states for juju deployments
+  * eaba7a5 Delete old dns state entries in repo
+  * 1a508ae adopt swap of networks in zone files and change name for dns state to bind
+  * 5f96e40 Adopt swap of ostack and mgmt in hosts file and resolv conf
+  * 141cade change network configuration states during installation - network defined inside container
+  * a4c65ff swap the ip networks of ostack and mgmt due to juju intelligence and revert split dns
+  * edf0bd9 Purged state for purging containers
+  * 1eb258c Cannot do roles in core like this, but add other tiny tweaks
+  * 6b4f22f Handle missing packages for machines that do get a juju deployment
+  * d9b187d Only playing with container names
+  * 1388182 Add files alias to deploy tgz packages
+  * ce0f1cb Add juju public key to the ubuntu user
+  * 9efdc1f Add method to completely purge a container including the data in /var/storage
+  * e973ded Handle postup configuration option for networks, provide dns zones from configuration data
+  * 66a61e5 Fix error when calling grain function
+  * 5523481 Also control the ssh defaults file
+  * 61a872b adding roles and split dns configuration
+  * a4be0a5 Reconfigure network to have a default route on the ostack network rather then on the mgmt
+  * 9645755 Fixing typos
+  * df80a49 fixed name of ostack network in cde - just to be complete
+  * 7168745 Make sure ubuntu user has bash as his shell
+  * 9a10699 Create groups before installing sudoers files
+  * 7c4869b Add changelog
+ 
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Thu, 01 Oct 2015 18:03:55 +0800
+
+alchemy-saltstack (1.0-05) unstable; urgency=medium
+
+  * a99f48a Disable kernel logging in rsyslog, but only if its a container
+  * 100db0b Add state to upgrade a system
+  * 5d8557f Add state to deploy local login banner text
+  * a7b779c Special state for CDE environment to import basic accounts into a new LDAP server
+  * d899597 Special state for bbox environment that configures proper 9p support for VM's mocking the CDE
+  * 14765cd Special core state for bbox environment, that sets the local alchemy repo to alchemy-testing
+  * fffd31c Configure pam auth against an LDAP server for all remote sessions.
+  * 8e43959 Provision LDAP server setup; can handle one master and multiple sync slaves
+  * 8d99306 Common configuration state for basic LDAP system for both, client and server
+  * ee386dc Add state to provision a LAM server - LDAP Account manager
+  * 87aa24d Add profiles and sudoers to basic core state
+  * f111c45 Base ca system dir on system pillar configuration
+  * 98729c0 Add handling of sudoers for internal groups - here coming from LDAP
+  * 9d51fce Fix typo in sources.list
+  * 1b0a43d Add state to configure automatic logout from bash session aber timeout
+  * d6479a9 Add internal alchemy repo to core apt configuration state
+  * f685ac2 Basic sshd configuration
+  * e1df3e9 Add configuration for internal repos and code to manage them
+  * fab431f Fix glitches in DNS zones
+  * cbdc359 Configure LDAP in top file
+  * 83af8de Add a pillar for pure system configuration values
+  * 95216da Add configuration values for LDAP setup on both, client and server
+  * a4aa8eb Add bash timeout as configuration value
+  * 2e1877d Add configuration for LDAP Account Manager
+  * 09f8da2 Fix glitches in the container configuration
+  * 2ff196e Adapt configuration values for bbox test environment
+  * d4f3873 Add installation of the 1-Net CAS CA certs to the core procedures,
+    so they will be available on all machines. Also install cert chains for clients and services in /etc/alchemy/ssl
+  * 000c934 Add roles and sync to core init state and make sure grub cannot be run against a container
+  * f316e6a Allow ess-a2 to be deployed into a vm in dev
+  * a9ab1b0 Allow the workspace to be flagged as bbox - or unflagged
+  * ab24ca5 Add nhb network config vlan to network setup script
+  * 35f2773 Install ntp on all metal machines and configure either as server or just client based on pillar config
+  * a28dff9 Implemeting setting of roles for all minions from configuration - i.e. pillar - data into grains using a state.
+  * 92b890f state for installing ntp server on a target, getting server information from pillar
+  * c22b19f Ensure ubuntu group gets created
+  * 1fe4962 adding nhb network, reshuffle boostrap servers, adding ntp servers
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Tue, 22 Sep 2015 18:43:25 +0800
+
+alchemy-saltstack (1.0-04) unstable; urgency=medium
+
+  * created git repo
+  * status hosts: maas can be bootstrapped and deploy machines 
+  * status containers: containers can be deployed to machines
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Sun, 13 Sep 2015 22:15:11 +0800
+
+alchemy-saltstack (1.0-03) unstable; urgency=medium
+
+  * added all host and container configurations 
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Wed, 09 Sep 2015 22:44:17 +0800
+
+alchemy-saltstack (1.0-02) unstable; urgency=medium
+
+  * Refactor maas deployment resources
+
+ -- Clemens Perz <clemens@1-net.com.sg>  Fri, 04 Sep 2015 09:59:17 +0800
+
+alchemy-saltstack (1.0-01) unstable; urgency=low
+
+  * Initial Release.
+
+ -- DevOps 1Net <1NetDevOps@1-net.com.sg>  Tue, 01 Sep 2015 20:08:34 +0800

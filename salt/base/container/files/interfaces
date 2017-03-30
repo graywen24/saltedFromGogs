@@ -1,0 +1,35 @@
+#
+# {{ pillar.defaults.hint }}
+#
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+{% for interface, options in network_config.iteritems() -%}
+{%- if options.ip4 is defined %}
+
+# Configuration for interface {{ options.name }} on {{ options.fqdn }}
+auto {{ options.name }}
+iface {{ options.name }} inet static
+  address {{ options.ip4 }}/{{ options.cdir }}
+{%- if options.gateway is defined %}
+  gateway {{ options.gateway }}
+{% endif -%}
+{%- if options.postup is defined %}
+  post-up {{ options.postup }}
+{% endif %}
+{%- if options.routes is defined %}
+{% for route in options.routes -%}
+# adding route for network {{ route.name }}
+  post-up route add -net {{ route.ipaddr }} netmask {{ route.netmask }} gateway {{ route.gateway }} dev {{ options.name }}
+
+{% endfor -%}
+{% endif %}
+
+{%- endif -%}
+{% endfor %}
+
+
+
+

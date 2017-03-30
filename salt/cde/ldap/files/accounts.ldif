@@ -1,0 +1,106 @@
+dn: cn=Clemens Perz,ou=people,{{pillar.ldap.suffix }}
+objectClass: posixAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+homeDirectory: /home/cperz
+loginShell: /bin/bash
+uid: cperz
+cn: Clemens Perz
+uidNumber: 10000
+gidNumber: 500
+sn: Perz
+givenName: Clemens
+structuralObjectClass: inetOrgPerson
+mail: clemens@1-net.com.sg
+userPassword:: e1NTSEF9Rys0VEZ1Zm56bFo0MHFUM3VScWNQN2EydXVPYnRXa3Y=
+pwdChangedTime: 20150914014639Z
+
+dn: cn=Mei Kang,ou=people,{{pillar.ldap.suffix }}
+objectClass: posixAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+homeDirectory: /home/meikang
+loginShell: /bin/bash
+uid: meikang
+cn: Mei Kang
+uidNumber: 10001
+gidNumber: 500
+sn: Kang
+givenName: Mei
+structuralObjectClass: inetOrgPerson
+mail: meikang@1-net.com.sg
+userPassword:: e1NTSEF9WUtNMXVTa1Fub3VDMkxWRGhSSk9FV0FQMUhlbE5MenU=
+pwdChangedTime: 20150612042624Z
+
+dn: cn=Swee Huat Gui,ou=people,{{pillar.ldap.suffix }}
+objectClass: posixAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+homeDirectory: /home/sweehuat
+loginShell: /bin/bash
+uid: sweehuat
+cn: Swee Huat Gui
+uidNumber: 10002
+gidNumber: 500
+sn: Gui
+givenName: Swee Huat
+structuralObjectClass: inetOrgPerson
+entryUUID: d290a0b2-fcf5-1033-9e11-1fd5da9a338e
+mail: sweehuat@1-net.com.sg
+userPassword:: e1NTSEF9WDBoL0V2QnFpWVpPZ0JMRkJBWTFEdU1vOUd0QWVFdUw=
+pwdChangedTime: 20150612042659Z
+
+dn: cn=Yong Joo Geam,ou=people,{{pillar.ldap.suffix }}
+objectClass: posixAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+homeDirectory: /home/yongjoo
+loginShell: /bin/bash
+uid: yongjoo
+cn: Yong Joo Geam
+uidNumber: 10003
+gidNumber: 500
+sn: Geam
+givenName: Yong Joo
+structuralObjectClass: inetOrgPerson
+mail: yongjoo@1-net.com.sg
+userPassword:: e1NTSEF9S2I3Mmt3UUw5bkRaNWlLZmdwY01nWGJhRlhaM2NjYmU=
+pwdChangedTime: 20150714142403Z
+
+dn: cn=Fei Min Foo,ou=people,{{pillar.ldap.suffix }}
+objectClass: posixAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+homeDirectory: /home/feimin
+loginShell: /bin/bash
+uid: feimin
+cn: Fei Min Foo
+uidNumber: 10005
+gidNumber: 501
+sn: Foo
+givenName: Fei Min
+mail: feimin@1-net.com.sg
+structuralObjectClass: inetOrgPerson
+userPassword:: e1NTSEF9Sjh0NTY2dzE0dG9kUjZsblJQc3Y2MVEzSEZyS1RKRkk=
+pwdChangedTime: 20141212073852Z
+
+dn: cn=Ubuntu User,ou=people,{{pillar.ldap.suffix }}
+objectClass: posixAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+homeDirectory: /home/ubuntu
+loginShell: /bin/bash
+uid: ubuntu
+cn: Ubuntu User
+userPassword:: e1NTSEF9WmI3aFpWUW5WdDhvb1J2YTF0cGRROGRtTE1XRktjQkw=
+uidNumber: 10006
+gidNumber: 500
+sn: User
+givenName: Ubuntu
+pwdChangedTime: 20150112115846Z

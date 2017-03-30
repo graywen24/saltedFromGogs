@@ -1,0 +1,3 @@
+
+Cmnd_Alias READCMD = /bin/cat, /bin/less, /bin/tailf, /bin/more, /usr/bin/tail, /usr/bin/head
+Cmnd_Alias EDITCMD = /usr/bin/vi

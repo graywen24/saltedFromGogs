@@ -1,0 +1,3 @@
+# Trust the hosts apt trusted keys for the container
+cp /etc/apt/trusted.gpg $cache/partial-$arch/etc/apt/
+cp -r /etc/apt/trusted.gpg.d $cache/partial-$arch/etc/apt/

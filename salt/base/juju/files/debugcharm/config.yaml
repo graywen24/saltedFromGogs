@@ -1,0 +1,7 @@
+options:
+  debug:
+    type: boolean
+    default: True
+  object:
+    type: string
+    default: ''

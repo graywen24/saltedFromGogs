@@ -1,0 +1,3 @@
+{%- set interface = salt['pillar.get']('maas:dhcp:interface', 'eth0') -%}
+{{ interface }}
+

@@ -1,0 +1,19 @@
+include "{{named_rndc_conf_path}}";
+
+# Zone declarations.
+{{for zone in zones}}
+zone "{{zone.zone_name}}" {
+    type master;
+    file "{{zone.target_path}}";
+};
+{{endfor}}
+
+# Access control for recursive queries.  See named.conf.options.inside.maas
+# for the directives used on this ACL.
+acl "trusted" {
+{{for trusted_network in trusted_networks}}
+    {{trusted_network}};
+{{endfor}}
+    localnets;
+    localhost;
+};

@@ -1,0 +1,19 @@
+Source: alchemy-saltstack
+Section: system
+Priority: optional
+Maintainer: DevOps 1Net <1NetDevOps@1-net.com.sg>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+
+Package: alchemy-saltstack
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Configuration and environments for salt master
+ Contains current configuration for the saltstack master,
+ which is
+ * all currently available environments
+ * scripts to deploy as modules and states
+ * pillar data for all environments
+ * formulae
+ * salt master configuration snippets for all files
+

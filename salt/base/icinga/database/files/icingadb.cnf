@@ -1,0 +1,5 @@
+
+[mysqld]
+# bind to the main ip address to enable access from all
+# the icinga masters
+bind-address            = 0.0.0.0

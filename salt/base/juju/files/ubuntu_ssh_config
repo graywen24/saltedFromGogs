@@ -1,0 +1,8 @@
+{% set manage = pillar.defaults.hosts.network.manage.ip4net|replace("{0}", "*") -%}
+{% set ostack = pillar.defaults.hosts.network.ostack.ip4net|replace("{0}", "*") -%}
+Host *.{{ pillar.defaults.env }} *.{{ pillar.defaults.envo }} {{ manage }} {{ ostack }}
+  CheckHostIP no
+  User ubuntu
+  HashKnownHosts no
+  StrictHostKeyChecking no
+  UserKnownHostsFile ~/.ssh/known_hosts.nhb

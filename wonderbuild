@@ -1,0 +1,3 @@
+prefix = alchemy
+scptarget = root@vcde-a2:/var/storage/ess-a1.cde.1nc/resources
+

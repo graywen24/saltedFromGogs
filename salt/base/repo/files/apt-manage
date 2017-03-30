@@ -1,0 +1,443 @@
+#!/usr/bin/env bash
+#!/usr/bin/env bash
+
+# set -x
+
+#DSITE=http://download.nus.edu.sg/mirror/ubuntu
+DSITE=http://sg.archive.ubuntu.com/ubuntu
+
+#extra="20150818"
+
+#aptly repo create -comment="Production packages AlMu" -distribution="trusty" -component="main" talmu-prod
+#aptly repo create -comment="Testing packages AlMu" -distribution="trusty" -component="testing" talmu-testing
+
+declare -A mirrors_ubuntu
+mirrors_ubuntu[tma]="$DSITE trusty main"
+mirrors_ubuntu[tuma]="$DSITE trusty-updates main"
+mirrors_ubuntu[tsma]="$DSITE trusty-security main"
+mirrors_ubuntu[tbma]="$DSITE trusty-backports main"
+mirrors_ubuntu[tre]="$DSITE trusty restricted"
+mirrors_ubuntu[ture]="$DSITE trusty-updates restricted"
+mirrors_ubuntu[tsre]="$DSITE trusty-security restricted"
+mirrors_ubuntu[tbre]="$DSITE trusty-backports restricted"
+mirrors_ubuntu[tun]="$DSITE trusty universe"
+mirrors_ubuntu[tuun]="$DSITE trusty-updates universe"
+mirrors_ubuntu[tsun]="$DSITE trusty-security universe"
+mirrors_ubuntu[tbun]="$DSITE trusty-backports universe"
+mirrors_ubuntu[tmu]="$DSITE trusty multiverse"
+mirrors_ubuntu[tumu]="$DSITE trusty-updates multiverse"
+mirrors_ubuntu[tsmu]="$DSITE trusty-security multiverse"
+mirrors_ubuntu[tbmu]="$DSITE trusty-backports multiverse"
+
+declare -A mirrors_other
+mirrors_other[maas]="http://ppa.launchpad.net/maas-maintainers/stable/ubuntu trusty main"
+mirrors_other[salt]="http://ppa.launchpad.net/saltstack/salt/ubuntu trusty main"
+mirrors_other[salt_official]="http://repo.saltstack.com/apt/ubuntu/14.04/amd64/latest trusty main"
+mirrors_other[salt_2015.5]="http://repo.saltstack.com/apt/ubuntu/14.04/amd64/2015.5 trusty main"
+mirrors_other[icinga]="http://packages.icinga.org/ubuntu trusty main"
+mirrors_other[aptly]="http://repo.aptly.info/ squeeze main"
+mirrors_other[lxc]="http://ppa.launchpad.net/ubuntu-lxc/stable/ubuntu trusty main"
+
+declare -A repos_alchemy
+repos_alchemy[textra-prod]="-comment=\"Production extra packages for all environments\" -distribution=trusty -component=extra"
+repos_alchemy[textra-testing]="-comment=\"Testing extra packages for all environments\" -distribution=trusty -component=testextra"
+repos_alchemy[talmu-prod]='-comment="Production packages AlMu" -distribution=trusty -component=main'
+repos_alchemy[talmu-testing]='-comment="Testing packages AlMu" -distribution=trusty -component=testmain'
+
+
+declare -A src
+src[tma]="$DSITE trusty main"
+src[tun]="$DSITE trusty universe"
+src[tuma]="$DSITE trusty-updates main"
+src[tuun]="$DSITE trusty-updates universe"
+src[tsma]="$DSITE trusty-security main"
+src[tsun]="$DSITE trusty-security universe"
+
+declare -A keys
+keys[ubuntu]="KEYSERVER=keyserver.ubuntu.com KEYID=437D05B5"
+keys[maas]="KEYSERVER=keyserver.ubuntu.com KEYID=93EE8CC5"
+keys[salt]="KEYSERVER=keyserver.ubuntu.com KEYID=0E27C0A6"
+keys[salt_official]="KEYSERVER=keyserver.ubuntu.com KEYID=DE57BFBE"
+keys[salt_official]="KEYSERVER=keyserver.ubuntu.com KEYID=DE57BFBE"
+keys[aptly]="KEYSERVER=keys.gnupg.net KEYID=2A194991"
+keys[lxc]="KEYSERVER=keyserver.ubuntu.com KEYID=0E27C0A6"
+
+logz() {
+    echo "$1"
+    logger -t aptly "$1"
+}
+
+key_exists() {
+    has_key=$(apt-key list | grep -q $1; echo $?)
+    return $has_key
+}
+
+keys_apt() {
+
+    for keykey in "${!keys[@]}"
+    do
+        eval "${keys[$keykey]}"
+        if ! key_exists $KEYID; then
+            logz "Install key $KEYID from $KEYSERVER ..."
+            apt-key adv --keyserver $KEYSERVER --recv-keys $KEYID
+        fi
+    done
+}
+
+keys_ensure() {
+
+    for keykey in "${!keys[@]}"
+    do
+        eval "${keys[$keykey]}"
+        if ! key_exists $KEYID; then
+            logz "Install key $KEYID from $KEYSERVER ..."
+             gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver $KEYSERVER --recv-keys $KEYID
+        fi
+    done
+
+}
+
+
+snapshot_exists() {
+    has_snapshot=$(aptly snapshot show $1 > /dev/null; echo $?)
+    return $has_snapshot
+}
+
+snapshot_manage() {
+    name=$1
+    mirror=$2
+    if ! snapshot_exists $name; then
+        logz "Creating snapshot $name from mirror $mirror"
+        aptly snapshot create $name from mirror $mirror
+    else
+        logz "Recreating snapshot $name from mirror $mirror"
+        aptly snapshot drop $name
+        aptly snapshot create $name from mirror $mirror
+    fi
+}
+
+mirror_exists() {
+    has_mirror=$(aptly mirror show $1 > /dev/null; echo $?)
+    return $has_mirror
+}
+
+mirrors_create() {
+    declare -n mirrors=$1
+    options=$2
+
+    for k in "${!mirrors[@]}"
+    do
+        if ! mirror_exists $k; then
+            logz "Creating mirror $k ..."
+            aptly mirror create $options $k ${mirrors[$k]}
+        fi
+    done
+}
+
+mirror_toggle() {
+
+  mirror=$1
+  action=$2
+  if [ "${src["$mirror"]:-NA}" != "NA" ]; then
+    aptly mirror edit -with-sources=$action $mirror
+  fi
+
+}
+
+mirrors_update() {
+    declare -n mirrors=$1
+    options=$2
+    for k in "${!mirrors[@]}"
+    do
+        if mirror_exists $k; then
+            logz "Updating mirror $k ..."
+            # mirror_toggle $k false
+            aptly mirror update $k
+        fi
+    done
+}
+
+mirrors_snapshot() {
+    declare -n mirrors=$1
+    options=$2
+    snapdate=$(date '+%Y%m%d')
+    for k in "${!mirrors[@]}"
+    do
+        if mirror_exists $k; then
+            snapshot_manage ${k}_${extra}${snapdate} $k
+        fi
+    done
+}
+
+mirrors_list() {
+    declare -n mirrors=$1
+    options=$2
+    snapdate=$(date '+%Y%m%d')
+    for k in "${!mirrors[@]}"
+    do
+        if mirror_exists $k; then
+            echo "aptly mirror create $options $k ${mirrors[$k]}"
+        else
+            echo "Mirror $k is defined but not created!"
+        fi
+    done
+}
+
+publish_exists() {
+    is_published=$(aptly publish list -raw | grep -q "$1 $2"; echo $?)
+    return $is_published
+}
+
+publish_snapshot() {
+
+    prefix=$1
+    distribution=$2
+    components=$3
+    snapshots=$4
+
+    if ! publish_exists $prefix $distribution; then
+        action="publish snapshot -gpg-key=6CBE5D2D -architectures=amd64,i386,source"
+        aptly $action -component=$components -distribution=$distribution $snapshots $prefix
+    else
+        echo "aptly publish drop $distribution $prefix"
+    fi
+
+    echo "=============================================================================================="
+}
+
+repo_exists() {
+    has_repo=$(aptly repo list -raw | grep -q $1; echo $?)
+    return $has_repo
+}
+
+repos_list() {
+    declare -n repos=$1
+    for k in "${!repos[@]}"
+    do
+        if repo_exists $k; then
+            echo "aptly repo create ${repos[$k]} $k"
+        else
+            echo "--- Repo $k is defined but not created: aptly repo create ${repos[$k]} $k"
+        fi
+    done
+}
+
+repos_create() {
+    declare -n repos=$1
+    options=$2
+
+    for k in "${!repos[@]}"
+    do
+        rootdir=$(aptly config show | awk -F"\"" ' $2~/rootDir/ { print $4 }' | sed 's/aptly/incoming/')
+        import_path=$rootdir/$k
+        mkdir -p $import_path
+
+
+        if ! repo_exists $k; then
+            logz "Creating repo $k ..."
+            cmd=$(echo "aptly repo create ${repos[$k]} $k")
+            eval $cmd
+        fi
+    done
+}
+
+is_testing() {
+    is_testing_repo=$(echo $repo | grep -q testing; echo $?)
+    return $is_testing_repo
+}
+
+repos_add() {
+
+    repo=$1
+    cargs=""
+
+    is_testing=$(echo $repo | grep -q testing; echo $?)
+    if is_testing; then
+      cargs="-force-replace=true"
+    fi
+
+    rootdir=$(aptly config show | awk -F"\"" ' $2~/rootDir/ { print $4 }' | sed 's/aptly/incoming/' )
+    import_path=$rootdir/$repo
+
+    logz "Importing files from repo $repo from $import_path ..."
+    aptly repo add $cargs $repo $import_path
+
+    if ! is_testing; then
+      echo "Now would do a snapshot"
+    fi
+}
+
+publish_repo() {
+    prefix=$1
+    distribution=$2
+    components=$3
+    repos=$4
+
+    if ! publish_exists $prefix $distribution; then
+        action="publish repo -gpg-key=6CBE5D2D -architectures=amd64,i386,source"
+        aptly $action -component=$components -distribution=$distribution $repos $prefix
+    else
+        action="publish update -gpg-key=6CBE5D2D"
+        aptly $action -force-overwrite $distribution $prefix
+    fi
+
+    echo "=============================================================================================="
+}
+
+
+uefi_update(){
+  wget -r -N -l inf -np -nH --cut-dirs=1 -R index.html* http://sg.archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/
+}
+
+images_update() {
+  wget -r -N -l inf -np -nH -R index.html* http://maas.ubuntu.com/images/ephemeral-v2/releases/trusty/amd64/
+}
+
+ensure_uefi() {
+
+  basedir=$1
+  rootdir=$(aptly config show | awk -F"\"" ' $2~/rootDir/ { print $4 }')
+  uefidir=$(echo $rootdir | sed 's/aptly/uefi/')
+
+  for d in $uefidir/dists/*
+  do
+    dist=$(basename $d)
+    rm -rf $rootdir/public/$basedir/dists/$dist/main/uefi
+    rsync -a $d/main/uefi $rootdir/public/$basedir/dists/$dist/main
+  done
+}
+
+usage() {
+  cat << EOT
+Apt-manage - an automation wrapper for aptly. *************************
+
+This tool allows you to create mirrors and other activities by configuration
+items and run them time by time. It is meant to help with running aptly actions
+via cron jobs or through saltstack and will be replaced by a proper saltstack state
+module in some time.
+
+Usage: apt-manage command [options]
+
+Commands are:
+
+  mirrors
+      Cycle through the list of defined mirrors and create them if
+      one is not yet created.
+
+  update
+      Update all mirrors from their sources and create a snapshot with
+      the current date and the name of the mirror.
+
+  publish
+      Publish defined resources.
+
+  unpub
+      Unpublish defined resources.
+
+  keys
+      Cycle through the configured list of keys man make sure they exist
+      in the local gpg keyring for the user running the tool.
+
+  snapshot
+      Create a snapshot on a list of mirrors.
+
+  list
+      List all known mirrors.
+
+  help
+      Show this help.
+
+  version
+      Show the version of the tool.
+
+EOT
+}
+
+
+case $1 in
+  "mirrors")
+        # keys_ensure
+        mirrors_create mirrors_ubuntu "-with-udebs=true"
+        mirrors_create mirrors_other
+        ;;
+  "update")
+        # keys_ensure
+        mirrors_update mirrors_ubuntu
+        mirrors_update mirrors_other
+        ;;
+  "repos")
+        repos_create repos_alchemy
+        ;;
+  "add")
+        repos_add $2
+        ;;
+  "publish")
+        components="main,restricted,multiverse,universe"
+        snap="essa2_20150508"
+        #publish_snapshot "multi/ubuntu" trusty $components "tma_$snap tre_$snap tmu_$snap tun_$snap"
+        #publish_snapshot "multi/ubuntu" trusty-updates $components "tuma_$snap ture_$snap tumu_$snap tuun_$snap"
+        #publish_snapshot "multi/ubuntu" trusty-security $components "tsma_$snap tsre_$snap tsmu_$snap tsun_$snap"
+        #publish_snapshot "multi/ubuntu" trusty-backports $components "tbma_$snap tbre_$snap tbmu_$snap tbun_$snap"
+
+#        publish_snapshot "nhb/ubuntu" trusty $components "tma_$snap tre_$snap tmu_$snap tun_$snap"
+#        publish_snapshot "nhb/ubuntu" trusty-updates $components "tuma_$snap ture_$snap tumu_$snap tuun_$snap"
+#        publish_snapshot "nhb/ubuntu" trusty-security $components "tsma_$snap tsre_$snap tsmu_$snap tsun_$snap"
+#        publish_snapshot "nhb/ubuntu" trusty-backports $components "tbma_$snap tbre_$snap tbmu_$snap tbun_$snap"
+
+        snap="20150819"
+        publish_snapshot "cde/ubuntu" trusty $components "tma_$snap tre_$snap tmu_$snap tun_$snap"
+        publish_snapshot "cde/ubuntu" trusty-updates $components "tuma_$snap ture_$snap tumu_$snap tuun_$snap"
+        publish_snapshot "cde/ubuntu" trusty-security $components "tsma_$snap tsre_$snap tsmu_$snap tsun_$snap"
+        publish_snapshot "cde/ubuntu" trusty-backports $components "tbma_$snap tbre_$snap tbmu_$snap tbun_$snap"
+        ensure_uefi "cde/ubuntu"
+
+        publish_snapshot "cde/maas" trusty main "maas_$snap"
+        publish_snapshot "cde/salt" trusty main "salt_$snap"
+        publish_snapshot "cde/aptly" trusty main "aptly_$snap"
+
+        publish_repo "cde/alchemy" trusty main,extra "talmu-prod textra-prod"
+        publish_repo "cde/alchemy-testing" trusty main,extra "talmu-testing textra-testing"
+
+        ;;
+  "unpub")
+        LIST=$(aptly publish list --raw | awk '{ print "aptly publish drop", $2, $1";"}')
+        eval $LIST
+        ;;
+  "keys")
+        keys_ensure
+        ;;
+  "snapshot")
+        if [ "$2" == "mirror" ]; then
+          mirrors_snapshot mirrors_ubuntu
+          mirrors_snapshot mirrors_other
+        fi
+        if [ "$2" == "repo" ]; then
+          repos_snapshot repos_alchemy
+        fi
+        ;;
+  "list")
+        if [ "$2" == "mirror" ]; then
+          mirrors_list mirrors_ubuntu
+          mirrors_list mirrors_other
+        fi
+        if [ "$2" == "repo" ]; then
+          repos_list repos_alchemy
+        fi
+        ;;
+  "help")
+        usage
+        ;;
+  "version")
+        echo "apt-manage - version 0.5.0"
+        ;;
+  "uefi")
+        ensure_uefi cde/ubuntu
+        ;;
+  "test")
+        publish_repo "cde/alchemy-testing" trusty main,extra "talmu-testing textra-testing"
+        ;;
+   *)
+        echo "Unknown action request: $1"
+        usage
+        ;;
+esac

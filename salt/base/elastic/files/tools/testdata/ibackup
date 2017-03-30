@@ -1,0 +1,18 @@
+{
+  "snapshot" : {
+    "snapshot" : "logstash_2017.01.03",
+    "indices" : [ "logstash-system-2017.01.03", "logstash-fabric-2017.01.03", "logstash-logfiles-2017.01.03", "logstash-openstack-2017.01.03" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-03-09T02:16:53.611Z",
+    "start_time_in_millis" : 1489025813611,
+    "end_time" : "2017-03-09T02:23:46.815Z",
+    "end_time_in_millis" : 1489026226815,
+    "duration_in_millis" : 413204,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }
+}

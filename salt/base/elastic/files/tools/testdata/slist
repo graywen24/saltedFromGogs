@@ -1,0 +1,2298 @@
+{
+  "snapshots" : [ {
+    "snapshot" : "logstash_2016.08.01",
+    "indices" : [ "logstash-logfiles-2016.08.01", "logstash-fabric-2016.08.01", "logstash-openstack-2016.08.01", "logstash-system-2016.08.01" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T04:01:26.817Z",
+    "start_time_in_millis" : 1474344086817,
+    "end_time" : "2016-09-20T04:07:58.214Z",
+    "end_time_in_millis" : 1474344478214,
+    "duration_in_millis" : 391397,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.02",
+    "indices" : [ "logstash-logfiles-2016.08.02", "logstash-openstack-2016.08.02", "logstash-fabric-2016.08.02", "logstash-system-2016.08.02" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T04:18:56.999Z",
+    "start_time_in_millis" : 1474345136999,
+    "end_time" : "2016-09-20T04:25:11.229Z",
+    "end_time_in_millis" : 1474345511229,
+    "duration_in_millis" : 374230,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.03",
+    "indices" : [ "logstash-openstack-2016.08.03", "logstash-system-2016.08.03", "logstash-logfiles-2016.08.03", "logstash-fabric-2016.08.03" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T04:37:09.577Z",
+    "start_time_in_millis" : 1474346229577,
+    "end_time" : "2016-09-20T04:43:17.309Z",
+    "end_time_in_millis" : 1474346597309,
+    "duration_in_millis" : 367732,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.04",
+    "indices" : [ "logstash-openstack-2016.08.04", "logstash-system-2016.08.04", "logstash-logfiles-2016.08.04", "logstash-fabric-2016.08.04" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T04:55:21.717Z",
+    "start_time_in_millis" : 1474347321717,
+    "end_time" : "2016-09-20T05:02:09.874Z",
+    "end_time_in_millis" : 1474347729874,
+    "duration_in_millis" : 408157,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.05",
+    "indices" : [ "logstash-system-2016.08.05", "logstash-openstack-2016.08.05", "logstash-logfiles-2016.08.05", "logstash-fabric-2016.08.05" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T05:14:02.829Z",
+    "start_time_in_millis" : 1474348442829,
+    "end_time" : "2016-09-20T05:20:02.313Z",
+    "end_time_in_millis" : 1474348802313,
+    "duration_in_millis" : 359484,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.06",
+    "indices" : [ "logstash-system-2016.08.06", "logstash-logfiles-2016.08.06", "logstash-openstack-2016.08.06", "logstash-fabric-2016.08.06" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T05:32:04.330Z",
+    "start_time_in_millis" : 1474349524330,
+    "end_time" : "2016-09-20T05:38:35.844Z",
+    "end_time_in_millis" : 1474349915844,
+    "duration_in_millis" : 391514,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.07",
+    "indices" : [ "logstash-system-2016.08.07", "logstash-openstack-2016.08.07", "logstash-logfiles-2016.08.07", "logstash-fabric-2016.08.07" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T05:50:34.939Z",
+    "start_time_in_millis" : 1474350634939,
+    "end_time" : "2016-09-20T05:56:57.059Z",
+    "end_time_in_millis" : 1474351017059,
+    "duration_in_millis" : 382120,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.08",
+    "indices" : [ "logstash-openstack-2016.08.08", "logstash-system-2016.08.08", "logstash-logfiles-2016.08.08", "logstash-fabric-2016.08.08" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T06:08:55.779Z",
+    "start_time_in_millis" : 1474351735779,
+    "end_time" : "2016-09-20T06:15:02.165Z",
+    "end_time_in_millis" : 1474352102165,
+    "duration_in_millis" : 366386,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.09",
+    "indices" : [ "logstash-fabric-2016.08.09", "logstash-openstack-2016.08.09", "logstash-system-2016.08.09", "logstash-logfiles-2016.08.09" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T06:27:02.104Z",
+    "start_time_in_millis" : 1474352822104,
+    "end_time" : "2016-09-20T06:33:11.118Z",
+    "end_time_in_millis" : 1474353191118,
+    "duration_in_millis" : 369014,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.10",
+    "indices" : [ "logstash-logfiles-2016.08.10", "logstash-openstack-2016.08.10", "logstash-system-2016.08.10", "logstash-fabric-2016.08.10" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T07:10:51.709Z",
+    "start_time_in_millis" : 1474355451709,
+    "end_time" : "2016-09-20T07:16:47.945Z",
+    "end_time_in_millis" : 1474355807945,
+    "duration_in_millis" : 356236,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.11",
+    "indices" : [ "logstash-logfiles-2016.08.11", "logstash-openstack-2016.08.11", "logstash-fabric-2016.08.11", "logstash-system-2016.08.11" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T07:28:38.507Z",
+    "start_time_in_millis" : 1474356518507,
+    "end_time" : "2016-09-20T07:34:34.642Z",
+    "end_time_in_millis" : 1474356874642,
+    "duration_in_millis" : 356135,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.12",
+    "indices" : [ "logstash-fabric-2016.08.12", "logstash-logfiles-2016.08.12", "logstash-openstack-2016.08.12", "logstash-system-2016.08.12" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T07:46:35.593Z",
+    "start_time_in_millis" : 1474357595593,
+    "end_time" : "2016-09-20T07:52:54.646Z",
+    "end_time_in_millis" : 1474357974646,
+    "duration_in_millis" : 379053,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.13",
+    "indices" : [ "logstash-fabric-2016.08.13", "logstash-logfiles-2016.08.13", "logstash-openstack-2016.08.13", "logstash-system-2016.08.13" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T08:04:58.235Z",
+    "start_time_in_millis" : 1474358698235,
+    "end_time" : "2016-09-20T08:12:11.521Z",
+    "end_time_in_millis" : 1474359131521,
+    "duration_in_millis" : 433286,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.14",
+    "indices" : [ "logstash-fabric-2016.08.14", "logstash-logfiles-2016.08.14", "logstash-system-2016.08.14", "logstash-openstack-2016.08.14" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T08:24:13.382Z",
+    "start_time_in_millis" : 1474359853382,
+    "end_time" : "2016-09-20T08:31:51.254Z",
+    "end_time_in_millis" : 1474360311254,
+    "duration_in_millis" : 457872,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.15",
+    "indices" : [ "logstash-fabric-2016.08.15", "logstash-system-2016.08.15", "logstash-logfiles-2016.08.15", "logstash-openstack-2016.08.15" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T08:43:58.767Z",
+    "start_time_in_millis" : 1474361038767,
+    "end_time" : "2016-09-20T08:50:35.558Z",
+    "end_time_in_millis" : 1474361435558,
+    "duration_in_millis" : 396791,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.16",
+    "indices" : [ "logstash-fabric-2016.08.16", "logstash-logfiles-2016.08.16", "logstash-openstack-2016.08.16", "logstash-system-2016.08.16" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T09:02:34.708Z",
+    "start_time_in_millis" : 1474362154708,
+    "end_time" : "2016-09-20T09:09:31.334Z",
+    "end_time_in_millis" : 1474362571334,
+    "duration_in_millis" : 416626,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.17",
+    "indices" : [ "logstash-openstack-2016.08.17", "logstash-fabric-2016.08.17", "logstash-system-2016.08.17", "logstash-logfiles-2016.08.17" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T09:21:42.537Z",
+    "start_time_in_millis" : 1474363302537,
+    "end_time" : "2016-09-20T09:28:27.415Z",
+    "end_time_in_millis" : 1474363707415,
+    "duration_in_millis" : 404878,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.18",
+    "indices" : [ "logstash-openstack-2016.08.18", "logstash-system-2016.08.18", "logstash-fabric-2016.08.18", "logstash-logfiles-2016.08.18" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T09:40:25.913Z",
+    "start_time_in_millis" : 1474364425913,
+    "end_time" : "2016-09-20T09:46:27.575Z",
+    "end_time_in_millis" : 1474364787575,
+    "duration_in_millis" : 361662,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.19",
+    "indices" : [ "logstash-system-2016.08.19", "logstash-openstack-2016.08.19", "logstash-fabric-2016.08.19", "logstash-logfiles-2016.08.19" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T09:58:21.872Z",
+    "start_time_in_millis" : 1474365501872,
+    "end_time" : "2016-09-20T10:04:18.152Z",
+    "end_time_in_millis" : 1474365858152,
+    "duration_in_millis" : 356280,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.20",
+    "indices" : [ "logstash-logfiles-2016.08.20", "logstash-openstack-2016.08.20", "logstash-fabric-2016.08.20", "logstash-system-2016.08.20" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T10:16:41.918Z",
+    "start_time_in_millis" : 1474366601918,
+    "end_time" : "2016-09-20T10:22:37.097Z",
+    "end_time_in_millis" : 1474366957097,
+    "duration_in_millis" : 355179,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.21",
+    "indices" : [ "logstash-logfiles-2016.08.21", "logstash-system-2016.08.21", "logstash-openstack-2016.08.21", "logstash-fabric-2016.08.21" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T10:34:41.016Z",
+    "start_time_in_millis" : 1474367681016,
+    "end_time" : "2016-09-20T10:40:47.511Z",
+    "end_time_in_millis" : 1474368047511,
+    "duration_in_millis" : 366495,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.22",
+    "indices" : [ "logstash-logfiles-2016.08.22", "logstash-openstack-2016.08.22", "logstash-system-2016.08.22", "logstash-fabric-2016.08.22" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T10:52:46.136Z",
+    "start_time_in_millis" : 1474368766136,
+    "end_time" : "2016-09-20T10:59:00.421Z",
+    "end_time_in_millis" : 1474369140421,
+    "duration_in_millis" : 374285,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.23",
+    "indices" : [ "logstash-fabric-2016.08.23", "logstash-logfiles-2016.08.23", "logstash-openstack-2016.08.23", "logstash-system-2016.08.23" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T11:10:57.017Z",
+    "start_time_in_millis" : 1474369857017,
+    "end_time" : "2016-09-20T11:16:48.111Z",
+    "end_time_in_millis" : 1474370208111,
+    "duration_in_millis" : 351094,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.24",
+    "indices" : [ "logstash-fabric-2016.08.24", "logstash-logfiles-2016.08.24", "logstash-openstack-2016.08.24", "logstash-system-2016.08.24" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T11:28:51.344Z",
+    "start_time_in_millis" : 1474370931344,
+    "end_time" : "2016-09-20T11:35:05.816Z",
+    "end_time_in_millis" : 1474371305816,
+    "duration_in_millis" : 374472,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.25",
+    "indices" : [ "logstash-fabric-2016.08.25", "logstash-logfiles-2016.08.25", "logstash-system-2016.08.25", "logstash-openstack-2016.08.25" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T11:46:55.921Z",
+    "start_time_in_millis" : 1474372015921,
+    "end_time" : "2016-09-20T11:53:00.855Z",
+    "end_time_in_millis" : 1474372380855,
+    "duration_in_millis" : 364934,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.26",
+    "indices" : [ "logstash-fabric-2016.08.26", "logstash-logfiles-2016.08.26", "logstash-openstack-2016.08.26", "logstash-system-2016.08.26" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T12:04:56.440Z",
+    "start_time_in_millis" : 1474373096440,
+    "end_time" : "2016-09-20T12:10:54.654Z",
+    "end_time_in_millis" : 1474373454654,
+    "duration_in_millis" : 358214,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.27",
+    "indices" : [ "logstash-logfiles-2016.08.27", "logstash-system-2016.08.27", "logstash-openstack-2016.08.27", "logstash-fabric-2016.08.27" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T12:22:54.865Z",
+    "start_time_in_millis" : 1474374174865,
+    "end_time" : "2016-09-20T12:29:12.506Z",
+    "end_time_in_millis" : 1474374552506,
+    "duration_in_millis" : 377641,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.28",
+    "indices" : [ "logstash-logfiles-2016.08.28", "logstash-openstack-2016.08.28", "logstash-system-2016.08.28", "logstash-fabric-2016.08.28" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T12:41:18.783Z",
+    "start_time_in_millis" : 1474375278783,
+    "end_time" : "2016-09-20T12:48:50.632Z",
+    "end_time_in_millis" : 1474375730632,
+    "duration_in_millis" : 451849,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.29",
+    "indices" : [ "logstash-openstack-2016.08.29", "logstash-system-2016.08.29", "logstash-fabric-2016.08.29", "logstash-logfiles-2016.08.29" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-20T13:00:55.958Z",
+    "start_time_in_millis" : 1474376455958,
+    "end_time" : "2016-09-20T13:07:41.730Z",
+    "end_time_in_millis" : 1474376861730,
+    "duration_in_millis" : 405772,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.30",
+    "indices" : [ "logstash-openstack-2016.08.30", "logstash-fabric-2016.08.30", "logstash-logfiles-2016.08.30", "logstash-system-2016.08.30" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T01:19:50.754Z",
+    "start_time_in_millis" : 1474852790754,
+    "end_time" : "2016-09-26T01:26:00.588Z",
+    "end_time_in_millis" : 1474853160588,
+    "duration_in_millis" : 369834,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.08.31",
+    "indices" : [ "logstash-openstack-2016.08.31", "logstash-fabric-2016.08.31", "logstash-logfiles-2016.08.31", "logstash-system-2016.08.31" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T01:37:54.627Z",
+    "start_time_in_millis" : 1474853874627,
+    "end_time" : "2016-09-26T01:44:04.036Z",
+    "end_time_in_millis" : 1474854244036,
+    "duration_in_millis" : 369409,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.01",
+    "indices" : [ "logstash-logfiles-2016.09.01", "logstash-fabric-2016.09.01", "logstash-openstack-2016.09.01", "logstash-system-2016.09.01" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T12:07:46.903Z",
+    "start_time_in_millis" : 1474891666903,
+    "end_time" : "2016-09-26T12:13:40.170Z",
+    "end_time_in_millis" : 1474892020170,
+    "duration_in_millis" : 353267,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.02",
+    "indices" : [ "logstash-fabric-2016.09.02", "logstash-logfiles-2016.09.02", "logstash-openstack-2016.09.02", "logstash-system-2016.09.02" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T12:25:25.881Z",
+    "start_time_in_millis" : 1474892725881,
+    "end_time" : "2016-09-26T12:32:20.539Z",
+    "end_time_in_millis" : 1474893140539,
+    "duration_in_millis" : 414658,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.03",
+    "indices" : [ "logstash-fabric-2016.09.03", "logstash-openstack-2016.09.03", "logstash-logfiles-2016.09.03", "logstash-system-2016.09.03" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T12:44:26.881Z",
+    "start_time_in_millis" : 1474893866881,
+    "end_time" : "2016-09-26T12:50:27.039Z",
+    "end_time_in_millis" : 1474894227039,
+    "duration_in_millis" : 360158,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.04",
+    "indices" : [ "logstash-logfiles-2016.09.04", "logstash-fabric-2016.09.04", "logstash-openstack-2016.09.04", "logstash-system-2016.09.04" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T13:02:37.693Z",
+    "start_time_in_millis" : 1474894957693,
+    "end_time" : "2016-09-26T13:09:35.782Z",
+    "end_time_in_millis" : 1474895375782,
+    "duration_in_millis" : 418089,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.05",
+    "indices" : [ "logstash-logfiles-2016.09.05", "logstash-fabric-2016.09.05", "logstash-openstack-2016.09.05", "logstash-system-2016.09.05" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T13:21:41.412Z",
+    "start_time_in_millis" : 1474896101412,
+    "end_time" : "2016-09-26T13:28:30.419Z",
+    "end_time_in_millis" : 1474896510419,
+    "duration_in_millis" : 409007,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.06",
+    "indices" : [ "logstash-logfiles-2016.09.06", "logstash-fabric-2016.09.06", "logstash-openstack-2016.09.06", "logstash-system-2016.09.06" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T13:40:37.271Z",
+    "start_time_in_millis" : 1474897237271,
+    "end_time" : "2016-09-26T13:47:31.777Z",
+    "end_time_in_millis" : 1474897651777,
+    "duration_in_millis" : 414506,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.07",
+    "indices" : [ "logstash-openstack-2016.09.07", "logstash-logfiles-2016.09.07", "logstash-fabric-2016.09.07", "logstash-system-2016.09.07" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T13:59:34.781Z",
+    "start_time_in_millis" : 1474898374781,
+    "end_time" : "2016-09-26T14:05:36.471Z",
+    "end_time_in_millis" : 1474898736471,
+    "duration_in_millis" : 361690,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.08",
+    "indices" : [ "logstash-fabric-2016.09.08", "logstash-openstack-2016.09.08", "logstash-logfiles-2016.09.08", "logstash-system-2016.09.08" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T14:17:42.210Z",
+    "start_time_in_millis" : 1474899462210,
+    "end_time" : "2016-09-26T14:23:41.605Z",
+    "end_time_in_millis" : 1474899821605,
+    "duration_in_millis" : 359395,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.09",
+    "indices" : [ "logstash-openstack-2016.09.09", "logstash-fabric-2016.09.09", "logstash-logfiles-2016.09.09", "logstash-system-2016.09.09" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-09-26T14:35:46.382Z",
+    "start_time_in_millis" : 1474900546382,
+    "end_time" : "2016-09-26T14:42:30.163Z",
+    "end_time_in_millis" : 1474900950163,
+    "duration_in_millis" : 403781,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.10",
+    "indices" : [ "logstash-system-2016.09.10", "logstash-logfiles-2016.09.10", "logstash-fabric-2016.09.10", "logstash-openstack-2016.09.10" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T03:35:50.363Z",
+    "start_time_in_millis" : 1475552150363,
+    "end_time" : "2016-10-04T03:42:40.658Z",
+    "end_time_in_millis" : 1475552560658,
+    "duration_in_millis" : 410295,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.11",
+    "indices" : [ "logstash-system-2016.09.11", "logstash-openstack-2016.09.11", "logstash-logfiles-2016.09.11", "logstash-fabric-2016.09.11" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T03:54:00.454Z",
+    "start_time_in_millis" : 1475553240454,
+    "end_time" : "2016-10-04T03:59:38.275Z",
+    "end_time_in_millis" : 1475553578275,
+    "duration_in_millis" : 337821,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.12",
+    "indices" : [ "logstash-system-2016.09.12", "logstash-fabric-2016.09.12", "logstash-openstack-2016.09.12", "logstash-logfiles-2016.09.12" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T04:11:41.863Z",
+    "start_time_in_millis" : 1475554301863,
+    "end_time" : "2016-10-04T04:17:56.975Z",
+    "end_time_in_millis" : 1475554676975,
+    "duration_in_millis" : 375112,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.13",
+    "indices" : [ "logstash-system-2016.09.13", "logstash-fabric-2016.09.13", "logstash-logfiles-2016.09.13", "logstash-openstack-2016.09.13" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T04:29:47.871Z",
+    "start_time_in_millis" : 1475555387871,
+    "end_time" : "2016-10-04T04:35:49.390Z",
+    "end_time_in_millis" : 1475555749390,
+    "duration_in_millis" : 361519,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.14",
+    "indices" : [ "logstash-system-2016.09.14", "logstash-fabric-2016.09.14", "logstash-openstack-2016.09.14", "logstash-logfiles-2016.09.14" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T04:47:52.949Z",
+    "start_time_in_millis" : 1475556472949,
+    "end_time" : "2016-10-04T04:53:51.375Z",
+    "end_time_in_millis" : 1475556831375,
+    "duration_in_millis" : 358426,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.15",
+    "indices" : [ "logstash-openstack-2016.09.15", "logstash-fabric-2016.09.15", "logstash-system-2016.09.15", "logstash-logfiles-2016.09.15" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T05:05:53.878Z",
+    "start_time_in_millis" : 1475557553878,
+    "end_time" : "2016-10-04T05:12:15.366Z",
+    "end_time_in_millis" : 1475557935366,
+    "duration_in_millis" : 381488,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.16",
+    "indices" : [ "logstash-openstack-2016.09.16", "logstash-fabric-2016.09.16", "logstash-system-2016.09.16", "logstash-logfiles-2016.09.16" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T05:24:29.051Z",
+    "start_time_in_millis" : 1475558669051,
+    "end_time" : "2016-10-04T05:31:30.626Z",
+    "end_time_in_millis" : 1475559090626,
+    "duration_in_millis" : 421575,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.17",
+    "indices" : [ "logstash-fabric-2016.09.17", "logstash-openstack-2016.09.17", "logstash-logfiles-2016.09.17", "logstash-system-2016.09.17" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T05:43:37.779Z",
+    "start_time_in_millis" : 1475559817779,
+    "end_time" : "2016-10-04T05:49:23.888Z",
+    "end_time_in_millis" : 1475560163888,
+    "duration_in_millis" : 346109,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.18",
+    "indices" : [ "logstash-fabric-2016.09.18", "logstash-openstack-2016.09.18", "logstash-logfiles-2016.09.18", "logstash-system-2016.09.18" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T05:49:40.148Z",
+    "start_time_in_millis" : 1475560180148,
+    "end_time" : "2016-10-04T05:55:53.028Z",
+    "end_time_in_millis" : 1475560553028,
+    "duration_in_millis" : 372880,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.19",
+    "indices" : [ "logstash-logfiles-2016.09.19", "logstash-openstack-2016.09.19", "logstash-fabric-2016.09.19", "logstash-system-2016.09.19" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-04T05:56:09.638Z",
+    "start_time_in_millis" : 1475560569638,
+    "end_time" : "2016-10-04T06:01:54.007Z",
+    "end_time_in_millis" : 1475560914007,
+    "duration_in_millis" : 344369,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.20",
+    "indices" : [ "logstash-fabric-2016.09.20", "logstash-logfiles-2016.09.20", "logstash-system-2016.09.20", "logstash-openstack-2016.09.20" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T01:33:38.663Z",
+    "start_time_in_millis" : 1476063218663,
+    "end_time" : "2016-10-10T01:40:23.477Z",
+    "end_time_in_millis" : 1476063623477,
+    "duration_in_millis" : 404814,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.21",
+    "indices" : [ "logstash-system-2016.09.21", "logstash-fabric-2016.09.21", "logstash-logfiles-2016.09.21", "logstash-openstack-2016.09.21" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T01:52:17.380Z",
+    "start_time_in_millis" : 1476064337380,
+    "end_time" : "2016-10-10T01:58:10.523Z",
+    "end_time_in_millis" : 1476064690523,
+    "duration_in_millis" : 353143,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.22",
+    "indices" : [ "logstash-system-2016.09.22", "logstash-fabric-2016.09.22", "logstash-logfiles-2016.09.22", "logstash-openstack-2016.09.22" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T02:10:06.387Z",
+    "start_time_in_millis" : 1476065406387,
+    "end_time" : "2016-10-10T02:16:17.771Z",
+    "end_time_in_millis" : 1476065777771,
+    "duration_in_millis" : 371384,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.23",
+    "indices" : [ "logstash-system-2016.09.23", "logstash-fabric-2016.09.23", "logstash-logfiles-2016.09.23", "logstash-openstack-2016.09.23" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T02:27:59.607Z",
+    "start_time_in_millis" : 1476066479607,
+    "end_time" : "2016-10-10T02:33:58.372Z",
+    "end_time_in_millis" : 1476066838372,
+    "duration_in_millis" : 358765,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.24",
+    "indices" : [ "logstash-system-2016.09.24", "logstash-fabric-2016.09.24", "logstash-logfiles-2016.09.24", "logstash-openstack-2016.09.24" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T02:46:07.648Z",
+    "start_time_in_millis" : 1476067567648,
+    "end_time" : "2016-10-10T02:52:29.181Z",
+    "end_time_in_millis" : 1476067949181,
+    "duration_in_millis" : 381533,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.25",
+    "indices" : [ "logstash-system-2016.09.25", "logstash-openstack-2016.09.25", "logstash-logfiles-2016.09.25", "logstash-fabric-2016.09.25" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T03:03:30.507Z",
+    "start_time_in_millis" : 1476068610507,
+    "end_time" : "2016-10-10T03:09:18.970Z",
+    "end_time_in_millis" : 1476068958970,
+    "duration_in_millis" : 348463,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.26",
+    "indices" : [ "logstash-openstack-2016.09.26", "logstash-fabric-2016.09.26", "logstash-system-2016.09.26", "logstash-logfiles-2016.09.26" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T03:21:20.613Z",
+    "start_time_in_millis" : 1476069680613,
+    "end_time" : "2016-10-10T03:28:10.950Z",
+    "end_time_in_millis" : 1476070090950,
+    "duration_in_millis" : 410337,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.27",
+    "indices" : [ "logstash-openstack-2016.09.27", "logstash-fabric-2016.09.27", "logstash-system-2016.09.27", "logstash-logfiles-2016.09.27" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T03:40:04.360Z",
+    "start_time_in_millis" : 1476070804360,
+    "end_time" : "2016-10-10T03:46:02.745Z",
+    "end_time_in_millis" : 1476071162745,
+    "duration_in_millis" : 358385,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.28",
+    "indices" : [ "logstash-openstack-2016.09.28", "logstash-system-2016.09.28", "logstash-logfiles-2016.09.28", "logstash-fabric-2016.09.28" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T03:57:47.729Z",
+    "start_time_in_millis" : 1476071867729,
+    "end_time" : "2016-10-10T04:03:54.473Z",
+    "end_time_in_millis" : 1476072234473,
+    "duration_in_millis" : 366744,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.29",
+    "indices" : [ "logstash-openstack-2016.09.29", "logstash-system-2016.09.29", "logstash-logfiles-2016.09.29", "logstash-fabric-2016.09.29" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T04:16:04.280Z",
+    "start_time_in_millis" : 1476072964280,
+    "end_time" : "2016-10-10T04:22:13.672Z",
+    "end_time_in_millis" : 1476073333672,
+    "duration_in_millis" : 369392,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.09.30",
+    "indices" : [ "logstash-system-2016.09.30", "logstash-fabric-2016.09.30", "logstash-logfiles-2016.09.30", "logstash-openstack-2016.09.30" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-10T10:11:56.323Z",
+    "start_time_in_millis" : 1476094316323,
+    "end_time" : "2016-10-10T10:18:43.912Z",
+    "end_time_in_millis" : 1476094723912,
+    "duration_in_millis" : 407589,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.01",
+    "indices" : [ "logstash-system-2016.10.01", "logstash-fabric-2016.10.01", "logstash-openstack-2016.10.01", "logstash-logfiles-2016.10.01" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T08:10:03.468Z",
+    "start_time_in_millis" : 1476432603468,
+    "end_time" : "2016-10-14T08:16:57.783Z",
+    "end_time_in_millis" : 1476433017783,
+    "duration_in_millis" : 414315,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.02",
+    "indices" : [ "logstash-fabric-2016.10.02", "logstash-openstack-2016.10.02", "logstash-logfiles-2016.10.02", "logstash-system-2016.10.02" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T08:29:10.874Z",
+    "start_time_in_millis" : 1476433750874,
+    "end_time" : "2016-10-14T08:35:17.552Z",
+    "end_time_in_millis" : 1476434117552,
+    "duration_in_millis" : 366678,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.03",
+    "indices" : [ "logstash-openstack-2016.10.03", "logstash-fabric-2016.10.03", "logstash-system-2016.10.03", "logstash-logfiles-2016.10.03" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T08:47:07.174Z",
+    "start_time_in_millis" : 1476434827174,
+    "end_time" : "2016-10-14T08:53:49.251Z",
+    "end_time_in_millis" : 1476435229251,
+    "duration_in_millis" : 402077,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.04",
+    "indices" : [ "logstash-fabric-2016.10.04", "logstash-openstack-2016.10.04", "logstash-logfiles-2016.10.04", "logstash-system-2016.10.04" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T09:06:04.613Z",
+    "start_time_in_millis" : 1476435964613,
+    "end_time" : "2016-10-14T09:12:26.019Z",
+    "end_time_in_millis" : 1476436346019,
+    "duration_in_millis" : 381406,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.05",
+    "indices" : [ "logstash-openstack-2016.10.05", "logstash-fabric-2016.10.05", "logstash-system-2016.10.05", "logstash-logfiles-2016.10.05" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T09:24:46.118Z",
+    "start_time_in_millis" : 1476437086118,
+    "end_time" : "2016-10-14T09:31:06.774Z",
+    "end_time_in_millis" : 1476437466774,
+    "duration_in_millis" : 380656,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.06",
+    "indices" : [ "logstash-fabric-2016.10.06", "logstash-logfiles-2016.10.06", "logstash-openstack-2016.10.06", "logstash-system-2016.10.06" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T09:43:34.177Z",
+    "start_time_in_millis" : 1476438214177,
+    "end_time" : "2016-10-14T09:49:45.051Z",
+    "end_time_in_millis" : 1476438585051,
+    "duration_in_millis" : 370874,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.07",
+    "indices" : [ "logstash-fabric-2016.10.07", "logstash-openstack-2016.10.07", "logstash-logfiles-2016.10.07", "logstash-system-2016.10.07" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T10:02:15.403Z",
+    "start_time_in_millis" : 1476439335403,
+    "end_time" : "2016-10-14T10:08:55.069Z",
+    "end_time_in_millis" : 1476439735069,
+    "duration_in_millis" : 399666,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.08",
+    "indices" : [ "logstash-logfiles-2016.10.08", "logstash-openstack-2016.10.08", "logstash-system-2016.10.08", "logstash-fabric-2016.10.08" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T10:09:10.688Z",
+    "start_time_in_millis" : 1476439750688,
+    "end_time" : "2016-10-14T10:16:12.233Z",
+    "end_time_in_millis" : 1476440172233,
+    "duration_in_millis" : 421545,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.09",
+    "indices" : [ "logstash-logfiles-2016.10.09", "logstash-system-2016.10.09", "logstash-fabric-2016.10.09", "logstash-openstack-2016.10.09" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-10-14T10:16:28.054Z",
+    "start_time_in_millis" : 1476440188054,
+    "end_time" : "2016-10-14T10:22:47.416Z",
+    "end_time_in_millis" : 1476440567416,
+    "duration_in_millis" : 379362,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.10",
+    "indices" : [ "logstash-system-2016.10.10", "logstash-fabric-2016.10.10", "logstash-logfiles-2016.10.10", "logstash-openstack-2016.10.10" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T08:15:41.725Z",
+    "start_time_in_millis" : 1478074541725,
+    "end_time" : "2016-11-02T08:22:17.971Z",
+    "end_time_in_millis" : 1478074937971,
+    "duration_in_millis" : 396246,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.11",
+    "indices" : [ "logstash-system-2016.10.11", "logstash-fabric-2016.10.11", "logstash-openstack-2016.10.11", "logstash-logfiles-2016.10.11" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T08:34:59.267Z",
+    "start_time_in_millis" : 1478075699267,
+    "end_time" : "2016-11-02T08:41:26.833Z",
+    "end_time_in_millis" : 1478076086833,
+    "duration_in_millis" : 387566,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.12",
+    "indices" : [ "logstash-openstack-2016.10.12", "logstash-system-2016.10.12", "logstash-fabric-2016.10.12", "logstash-logfiles-2016.10.12" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T08:54:15.613Z",
+    "start_time_in_millis" : 1478076855613,
+    "end_time" : "2016-11-02T09:00:40.344Z",
+    "end_time_in_millis" : 1478077240344,
+    "duration_in_millis" : 384731,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.13",
+    "indices" : [ "logstash-openstack-2016.10.13", "logstash-logfiles-2016.10.13", "logstash-system-2016.10.13", "logstash-fabric-2016.10.13" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T09:13:10.898Z",
+    "start_time_in_millis" : 1478077990898,
+    "end_time" : "2016-11-02T09:20:12.223Z",
+    "end_time_in_millis" : 1478078412223,
+    "duration_in_millis" : 421325,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.14",
+    "indices" : [ "logstash-openstack-2016.10.14", "logstash-system-2016.10.14", "logstash-logfiles-2016.10.14", "logstash-fabric-2016.10.14" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T09:32:22.946Z",
+    "start_time_in_millis" : 1478079142946,
+    "end_time" : "2016-11-02T09:39:22.431Z",
+    "end_time_in_millis" : 1478079562431,
+    "duration_in_millis" : 419485,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.15",
+    "indices" : [ "logstash-openstack-2016.10.15", "logstash-logfiles-2016.10.15", "logstash-system-2016.10.15", "logstash-fabric-2016.10.15" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T09:51:31.716Z",
+    "start_time_in_millis" : 1478080291716,
+    "end_time" : "2016-11-02T09:57:45.057Z",
+    "end_time_in_millis" : 1478080665057,
+    "duration_in_millis" : 373341,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.16",
+    "indices" : [ "logstash-openstack-2016.10.16", "logstash-system-2016.10.16", "logstash-logfiles-2016.10.16", "logstash-fabric-2016.10.16" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T10:10:07.930Z",
+    "start_time_in_millis" : 1478081407930,
+    "end_time" : "2016-11-02T10:17:12.339Z",
+    "end_time_in_millis" : 1478081832339,
+    "duration_in_millis" : 424409,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.17",
+    "indices" : [ "logstash-logfiles-2016.10.17", "logstash-openstack-2016.10.17", "logstash-system-2016.10.17", "logstash-fabric-2016.10.17" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T10:30:30.509Z",
+    "start_time_in_millis" : 1478082630509,
+    "end_time" : "2016-11-02T10:39:29.502Z",
+    "end_time_in_millis" : 1478083169502,
+    "duration_in_millis" : 538993,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.18",
+    "indices" : [ "logstash-logfiles-2016.10.18", "logstash-openstack-2016.10.18", "logstash-system-2016.10.18", "logstash-fabric-2016.10.18" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T10:51:48.127Z",
+    "start_time_in_millis" : 1478083908127,
+    "end_time" : "2016-11-02T10:59:25.923Z",
+    "end_time_in_millis" : 1478084365923,
+    "duration_in_millis" : 457796,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.19",
+    "indices" : [ "logstash-fabric-2016.10.19", "logstash-logfiles-2016.10.19", "logstash-openstack-2016.10.19", "logstash-system-2016.10.19" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-02T11:11:35.095Z",
+    "start_time_in_millis" : 1478085095095,
+    "end_time" : "2016-11-02T11:17:35.435Z",
+    "end_time_in_millis" : 1478085455435,
+    "duration_in_millis" : 360340,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.20",
+    "indices" : [ "logstash-fabric-2016.10.20", "logstash-system-2016.10.20", "logstash-logfiles-2016.10.20", "logstash-openstack-2016.10.20" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T08:53:16.921Z",
+    "start_time_in_millis" : 1479804796921,
+    "end_time" : "2016-11-22T09:00:18.972Z",
+    "end_time_in_millis" : 1479805218972,
+    "duration_in_millis" : 422051,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.21",
+    "indices" : [ "logstash-fabric-2016.10.21", "logstash-system-2016.10.21", "logstash-openstack-2016.10.21", "logstash-logfiles-2016.10.21" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T09:12:53.955Z",
+    "start_time_in_millis" : 1479805973955,
+    "end_time" : "2016-11-22T09:19:08.310Z",
+    "end_time_in_millis" : 1479806348310,
+    "duration_in_millis" : 374355,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.22",
+    "indices" : [ "logstash-system-2016.10.22", "logstash-fabric-2016.10.22", "logstash-openstack-2016.10.22", "logstash-logfiles-2016.10.22" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T09:31:35.159Z",
+    "start_time_in_millis" : 1479807095159,
+    "end_time" : "2016-11-22T09:37:54.665Z",
+    "end_time_in_millis" : 1479807474665,
+    "duration_in_millis" : 379506,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.23",
+    "indices" : [ "logstash-openstack-2016.10.23", "logstash-system-2016.10.23", "logstash-fabric-2016.10.23", "logstash-logfiles-2016.10.23" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T09:50:11.679Z",
+    "start_time_in_millis" : 1479808211679,
+    "end_time" : "2016-11-22T09:56:24.124Z",
+    "end_time_in_millis" : 1479808584124,
+    "duration_in_millis" : 372445,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.24",
+    "indices" : [ "logstash-openstack-2016.10.24", "logstash-fabric-2016.10.24", "logstash-logfiles-2016.10.24", "logstash-system-2016.10.24" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T10:08:13.673Z",
+    "start_time_in_millis" : 1479809293673,
+    "end_time" : "2016-11-22T10:15:22.310Z",
+    "end_time_in_millis" : 1479809722310,
+    "duration_in_millis" : 428637,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.25",
+    "indices" : [ "logstash-openstack-2016.10.25", "logstash-fabric-2016.10.25", "logstash-system-2016.10.25", "logstash-logfiles-2016.10.25" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T10:28:57.127Z",
+    "start_time_in_millis" : 1479810537127,
+    "end_time" : "2016-11-22T10:35:59.602Z",
+    "end_time_in_millis" : 1479810959602,
+    "duration_in_millis" : 422475,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.26",
+    "indices" : [ "logstash-openstack-2016.10.26", "logstash-logfiles-2016.10.26", "logstash-system-2016.10.26", "logstash-fabric-2016.10.26" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T10:50:18.212Z",
+    "start_time_in_millis" : 1479811818212,
+    "end_time" : "2016-11-22T10:57:50.515Z",
+    "end_time_in_millis" : 1479812270515,
+    "duration_in_millis" : 452303,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.27",
+    "indices" : [ "logstash-openstack-2016.10.27", "logstash-system-2016.10.27", "logstash-logfiles-2016.10.27", "logstash-fabric-2016.10.27" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T11:12:20.190Z",
+    "start_time_in_millis" : 1479813140190,
+    "end_time" : "2016-11-22T11:20:50.841Z",
+    "end_time_in_millis" : 1479813650841,
+    "duration_in_millis" : 510651,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.28",
+    "indices" : [ "logstash-logfiles-2016.10.28", "logstash-openstack-2016.10.28", "logstash-fabric-2016.10.28", "logstash-system-2016.10.28" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T11:35:04.150Z",
+    "start_time_in_millis" : 1479814504150,
+    "end_time" : "2016-11-22T11:43:18.508Z",
+    "end_time_in_millis" : 1479814998508,
+    "duration_in_millis" : 494358,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.29",
+    "indices" : [ "logstash-openstack-2016.10.29", "logstash-logfiles-2016.10.29", "logstash-fabric-2016.10.29", "logstash-system-2016.10.29" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-22T11:57:46.393Z",
+    "start_time_in_millis" : 1479815866393,
+    "end_time" : "2016-11-22T12:05:31.421Z",
+    "end_time_in_millis" : 1479816331421,
+    "duration_in_millis" : 465028,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.30",
+    "indices" : [ "logstash-logfiles-2016.10.30", "logstash-fabric-2016.10.30", "logstash-openstack-2016.10.30", "logstash-system-2016.10.30" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T08:42:15.613Z",
+    "start_time_in_millis" : 1479890535613,
+    "end_time" : "2016-11-23T08:50:07.822Z",
+    "end_time_in_millis" : 1479891007822,
+    "duration_in_millis" : 472209,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.10.31",
+    "indices" : [ "logstash-fabric-2016.10.31", "logstash-openstack-2016.10.31", "logstash-system-2016.10.31", "logstash-logfiles-2016.10.31" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T09:04:26.841Z",
+    "start_time_in_millis" : 1479891866841,
+    "end_time" : "2016-11-23T09:12:36.071Z",
+    "end_time_in_millis" : 1479892356071,
+    "duration_in_millis" : 489230,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.01",
+    "indices" : [ "logstash-system-2016.11.01", "logstash-logfiles-2016.11.01", "logstash-fabric-2016.11.01", "logstash-openstack-2016.11.01" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T09:44:51.255Z",
+    "start_time_in_millis" : 1479894291255,
+    "end_time" : "2016-11-23T09:51:53.755Z",
+    "end_time_in_millis" : 1479894713755,
+    "duration_in_millis" : 422500,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.02",
+    "indices" : [ "logstash-openstack-2016.11.02", "logstash-system-2016.11.02", "logstash-fabric-2016.11.02", "logstash-logfiles-2016.11.02" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T10:06:15.328Z",
+    "start_time_in_millis" : 1479895575328,
+    "end_time" : "2016-11-23T10:14:34.750Z",
+    "end_time_in_millis" : 1479896074750,
+    "duration_in_millis" : 499422,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.03",
+    "indices" : [ "logstash-openstack-2016.11.03", "logstash-system-2016.11.03", "logstash-logfiles-2016.11.03", "logstash-fabric-2016.11.03" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T10:28:20.432Z",
+    "start_time_in_millis" : 1479896900432,
+    "end_time" : "2016-11-23T10:36:07.541Z",
+    "end_time_in_millis" : 1479897367541,
+    "duration_in_millis" : 467109,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.04",
+    "indices" : [ "logstash-openstack-2016.11.04", "logstash-system-2016.11.04", "logstash-logfiles-2016.11.04", "logstash-fabric-2016.11.04" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T10:50:32.769Z",
+    "start_time_in_millis" : 1479898232769,
+    "end_time" : "2016-11-23T10:57:48.738Z",
+    "end_time_in_millis" : 1479898668738,
+    "duration_in_millis" : 435969,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.05",
+    "indices" : [ "logstash-openstack-2016.11.05", "logstash-system-2016.11.05", "logstash-logfiles-2016.11.05", "logstash-fabric-2016.11.05" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T11:12:14.822Z",
+    "start_time_in_millis" : 1479899534822,
+    "end_time" : "2016-11-23T11:20:16.520Z",
+    "end_time_in_millis" : 1479900016520,
+    "duration_in_millis" : 481698,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.06",
+    "indices" : [ "logstash-openstack-2016.11.06", "logstash-system-2016.11.06", "logstash-fabric-2016.11.06", "logstash-logfiles-2016.11.06" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T11:34:31.252Z",
+    "start_time_in_millis" : 1479900871252,
+    "end_time" : "2016-11-23T11:43:40.021Z",
+    "end_time_in_millis" : 1479901420021,
+    "duration_in_millis" : 548769,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.07",
+    "indices" : [ "logstash-system-2016.11.07", "logstash-openstack-2016.11.07", "logstash-logfiles-2016.11.07", "logstash-fabric-2016.11.07" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T11:57:51.069Z",
+    "start_time_in_millis" : 1479902271069,
+    "end_time" : "2016-11-23T12:05:37.913Z",
+    "end_time_in_millis" : 1479902737913,
+    "duration_in_millis" : 466844,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.08",
+    "indices" : [ "logstash-system-2016.11.08", "logstash-openstack-2016.11.08", "logstash-logfiles-2016.11.08", "logstash-fabric-2016.11.08" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T12:20:06.677Z",
+    "start_time_in_millis" : 1479903606677,
+    "end_time" : "2016-11-23T12:27:53.899Z",
+    "end_time_in_millis" : 1479904073899,
+    "duration_in_millis" : 467222,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.09",
+    "indices" : [ "logstash-system-2016.11.09", "logstash-logfiles-2016.11.09", "logstash-fabric-2016.11.09", "logstash-openstack-2016.11.09" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-11-23T12:42:12.222Z",
+    "start_time_in_millis" : 1479904932222,
+    "end_time" : "2016-11-23T12:50:16.676Z",
+    "end_time_in_millis" : 1479905416676,
+    "duration_in_millis" : 484454,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.10",
+    "indices" : [ "logstash-fabric-2016.11.10", "logstash-system-2016.11.10", "logstash-logfiles-2016.11.10", "logstash-openstack-2016.11.10" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T02:47:26.998Z",
+    "start_time_in_millis" : 1480560446998,
+    "end_time" : "2016-12-01T02:54:31.064Z",
+    "end_time_in_millis" : 1480560871064,
+    "duration_in_millis" : 424066,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.11",
+    "indices" : [ "logstash-fabric-2016.11.11", "logstash-system-2016.11.11", "logstash-logfiles-2016.11.11", "logstash-openstack-2016.11.11" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T03:08:52.788Z",
+    "start_time_in_millis" : 1480561732788,
+    "end_time" : "2016-12-01T03:17:04.518Z",
+    "end_time_in_millis" : 1480562224518,
+    "duration_in_millis" : 491730,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.12",
+    "indices" : [ "logstash-system-2016.11.12", "logstash-openstack-2016.11.12", "logstash-logfiles-2016.11.12", "logstash-fabric-2016.11.12" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T03:31:20.482Z",
+    "start_time_in_millis" : 1480563080482,
+    "end_time" : "2016-12-01T03:38:35.544Z",
+    "end_time_in_millis" : 1480563515544,
+    "duration_in_millis" : 435062,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.13",
+    "indices" : [ "logstash-openstack-2016.11.13", "logstash-system-2016.11.13", "logstash-fabric-2016.11.13", "logstash-logfiles-2016.11.13" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T03:51:47.088Z",
+    "start_time_in_millis" : 1480564307088,
+    "end_time" : "2016-12-01T03:58:15.204Z",
+    "end_time_in_millis" : 1480564695204,
+    "duration_in_millis" : 388116,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.14",
+    "indices" : [ "logstash-openstack-2016.11.14", "logstash-system-2016.11.14", "logstash-logfiles-2016.11.14", "logstash-fabric-2016.11.14" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T04:12:42.831Z",
+    "start_time_in_millis" : 1480565562831,
+    "end_time" : "2016-12-01T04:21:05.658Z",
+    "end_time_in_millis" : 1480566065658,
+    "duration_in_millis" : 502827,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.15",
+    "indices" : [ "logstash-openstack-2016.11.15", "logstash-system-2016.11.15", "logstash-logfiles-2016.11.15", "logstash-fabric-2016.11.15" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T04:35:36.188Z",
+    "start_time_in_millis" : 1480566936188,
+    "end_time" : "2016-12-01T04:42:40.766Z",
+    "end_time_in_millis" : 1480567360766,
+    "duration_in_millis" : 424578,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.16",
+    "indices" : [ "logstash-openstack-2016.11.16", "logstash-system-2016.11.16", "logstash-logfiles-2016.11.16", "logstash-fabric-2016.11.16" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T04:57:17.048Z",
+    "start_time_in_millis" : 1480568237048,
+    "end_time" : "2016-12-01T05:04:42.856Z",
+    "end_time_in_millis" : 1480568682856,
+    "duration_in_millis" : 445808,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.17",
+    "indices" : [ "logstash-system-2016.11.17", "logstash-openstack-2016.11.17", "logstash-fabric-2016.11.17", "logstash-logfiles-2016.11.17" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T05:19:06.367Z",
+    "start_time_in_millis" : 1480569546367,
+    "end_time" : "2016-12-01T05:26:28.759Z",
+    "end_time_in_millis" : 1480569988759,
+    "duration_in_millis" : 442392,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.18",
+    "indices" : [ "logstash-system-2016.11.18", "logstash-logfiles-2016.11.18", "logstash-openstack-2016.11.18", "logstash-fabric-2016.11.18" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T05:40:50.925Z",
+    "start_time_in_millis" : 1480570850925,
+    "end_time" : "2016-12-01T05:47:58.463Z",
+    "end_time_in_millis" : 1480571278463,
+    "duration_in_millis" : 427538,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.19",
+    "indices" : [ "logstash-system-2016.11.19", "logstash-openstack-2016.11.19", "logstash-logfiles-2016.11.19", "logstash-fabric-2016.11.19" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T06:02:36.706Z",
+    "start_time_in_millis" : 1480572156706,
+    "end_time" : "2016-12-01T06:11:06.057Z",
+    "end_time_in_millis" : 1480572666057,
+    "duration_in_millis" : 509351,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.20",
+    "indices" : [ "logstash-logfiles-2016.11.20", "logstash-openstack-2016.11.20", "logstash-system-2016.11.20", "logstash-fabric-2016.11.20" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T07:48:05.696Z",
+    "start_time_in_millis" : 1480578485696,
+    "end_time" : "2016-12-01T07:56:07.489Z",
+    "end_time_in_millis" : 1480578967489,
+    "duration_in_millis" : 481793,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.21",
+    "indices" : [ "logstash-openstack-2016.11.21", "logstash-logfiles-2016.11.21", "logstash-fabric-2016.11.21", "logstash-system-2016.11.21" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T08:10:43.437Z",
+    "start_time_in_millis" : 1480579843437,
+    "end_time" : "2016-12-01T08:19:06.726Z",
+    "end_time_in_millis" : 1480580346726,
+    "duration_in_millis" : 503289,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.22",
+    "indices" : [ "logstash-logfiles-2016.11.22", "logstash-openstack-2016.11.22", "logstash-fabric-2016.11.22", "logstash-system-2016.11.22" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T08:33:07.238Z",
+    "start_time_in_millis" : 1480581187238,
+    "end_time" : "2016-12-01T08:40:38.233Z",
+    "end_time_in_millis" : 1480581638233,
+    "duration_in_millis" : 450995,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.23",
+    "indices" : [ "logstash-fabric-2016.11.23", "logstash-logfiles-2016.11.23", "logstash-openstack-2016.11.23", "logstash-system-2016.11.23" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T08:53:29.003Z",
+    "start_time_in_millis" : 1480582409003,
+    "end_time" : "2016-12-01T09:01:59.760Z",
+    "end_time_in_millis" : 1480582919760,
+    "duration_in_millis" : 510757,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.24",
+    "indices" : [ "logstash-fabric-2016.11.24", "logstash-openstack-2016.11.24", "logstash-logfiles-2016.11.24", "logstash-system-2016.11.24" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T09:14:36.618Z",
+    "start_time_in_millis" : 1480583676618,
+    "end_time" : "2016-12-01T09:21:46.989Z",
+    "end_time_in_millis" : 1480584106989,
+    "duration_in_millis" : 430371,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.25",
+    "indices" : [ "logstash-fabric-2016.11.25", "logstash-system-2016.11.25", "logstash-openstack-2016.11.25", "logstash-logfiles-2016.11.25" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T09:34:23.719Z",
+    "start_time_in_millis" : 1480584863719,
+    "end_time" : "2016-12-01T09:41:15.058Z",
+    "end_time_in_millis" : 1480585275058,
+    "duration_in_millis" : 411339,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.26",
+    "indices" : [ "logstash-system-2016.11.26", "logstash-fabric-2016.11.26", "logstash-openstack-2016.11.26", "logstash-logfiles-2016.11.26" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T09:53:46.727Z",
+    "start_time_in_millis" : 1480586026727,
+    "end_time" : "2016-12-01T10:01:46.961Z",
+    "end_time_in_millis" : 1480586506961,
+    "duration_in_millis" : 480234,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.27",
+    "indices" : [ "logstash-system-2016.11.27", "logstash-fabric-2016.11.27", "logstash-openstack-2016.11.27", "logstash-logfiles-2016.11.27" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T10:14:21.286Z",
+    "start_time_in_millis" : 1480587261286,
+    "end_time" : "2016-12-01T10:20:54.873Z",
+    "end_time_in_millis" : 1480587654873,
+    "duration_in_millis" : 393587,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.28",
+    "indices" : [ "logstash-openstack-2016.11.28", "logstash-system-2016.11.28", "logstash-fabric-2016.11.28", "logstash-logfiles-2016.11.28" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T10:33:35.556Z",
+    "start_time_in_millis" : 1480588415556,
+    "end_time" : "2016-12-01T10:41:20.733Z",
+    "end_time_in_millis" : 1480588880733,
+    "duration_in_millis" : 465177,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.29",
+    "indices" : [ "logstash-openstack-2016.11.29", "logstash-logfiles-2016.11.29", "logstash-fabric-2016.11.29", "logstash-system-2016.11.29" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-01T10:53:46.350Z",
+    "start_time_in_millis" : 1480589626350,
+    "end_time" : "2016-12-01T11:01:07.609Z",
+    "end_time_in_millis" : 1480590067609,
+    "duration_in_millis" : 441259,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.11.30",
+    "indices" : [ "logstash-logfiles-2016.11.30", "logstash-system-2016.11.30", "logstash-openstack-2016.11.30", "logstash-fabric-2016.11.30" ],
+    "state" : "SUCCESS",
+    "start_time" : "2016-12-08T09:48:19.067Z",
+    "start_time_in_millis" : 1481190499067,
+    "end_time" : "2016-12-08T09:54:42.878Z",
+    "end_time_in_millis" : 1481190882878,
+    "duration_in_millis" : 383811,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.01",
+    "indices" : [ "logstash-fabric-2016.12.01", "logstash-openstack-2016.12.01", "logstash-logfiles-2016.12.01", "logstash-system-2016.12.01" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T03:27:49.877Z",
+    "start_time_in_millis" : 1484623669877,
+    "end_time" : "2017-01-17T03:34:59.234Z",
+    "end_time_in_millis" : 1484624099234,
+    "duration_in_millis" : 429357,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.02",
+    "indices" : [ "logstash-openstack-2016.12.02", "logstash-logfiles-2016.12.02", "logstash-system-2016.12.02", "logstash-fabric-2016.12.02" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T03:47:51.451Z",
+    "start_time_in_millis" : 1484624871451,
+    "end_time" : "2017-01-17T03:54:15.110Z",
+    "end_time_in_millis" : 1484625255110,
+    "duration_in_millis" : 383659,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.03",
+    "indices" : [ "logstash-openstack-2016.12.03", "logstash-logfiles-2016.12.03", "logstash-system-2016.12.03", "logstash-fabric-2016.12.03" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T04:06:43.032Z",
+    "start_time_in_millis" : 1484626003032,
+    "end_time" : "2017-01-17T04:13:13.648Z",
+    "end_time_in_millis" : 1484626393648,
+    "duration_in_millis" : 390616,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.04",
+    "indices" : [ "logstash-system-2016.12.04", "logstash-openstack-2016.12.04", "logstash-logfiles-2016.12.04", "logstash-fabric-2016.12.04" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T04:25:51.931Z",
+    "start_time_in_millis" : 1484627151931,
+    "end_time" : "2017-01-17T04:31:59.377Z",
+    "end_time_in_millis" : 1484627519377,
+    "duration_in_millis" : 367446,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.05",
+    "indices" : [ "logstash-system-2016.12.05", "logstash-openstack-2016.12.05", "logstash-fabric-2016.12.05", "logstash-logfiles-2016.12.05" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T04:44:42.880Z",
+    "start_time_in_millis" : 1484628282880,
+    "end_time" : "2017-01-17T04:51:10.583Z",
+    "end_time_in_millis" : 1484628670583,
+    "duration_in_millis" : 387703,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.06",
+    "indices" : [ "logstash-system-2016.12.06", "logstash-openstack-2016.12.06", "logstash-fabric-2016.12.06", "logstash-logfiles-2016.12.06" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T05:04:01.681Z",
+    "start_time_in_millis" : 1484629441681,
+    "end_time" : "2017-01-17T05:10:34.863Z",
+    "end_time_in_millis" : 1484629834863,
+    "duration_in_millis" : 393182,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.07",
+    "indices" : [ "logstash-system-2016.12.07", "logstash-openstack-2016.12.07", "logstash-fabric-2016.12.07", "logstash-logfiles-2016.12.07" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T05:23:27.847Z",
+    "start_time_in_millis" : 1484630607847,
+    "end_time" : "2017-01-17T05:29:52.637Z",
+    "end_time_in_millis" : 1484630992637,
+    "duration_in_millis" : 384790,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.08",
+    "indices" : [ "logstash-logfiles-2016.12.08", "logstash-openstack-2016.12.08", "logstash-system-2016.12.08", "logstash-fabric-2016.12.08" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T05:42:41.628Z",
+    "start_time_in_millis" : 1484631761628,
+    "end_time" : "2017-01-17T05:48:45.925Z",
+    "end_time_in_millis" : 1484632125925,
+    "duration_in_millis" : 364297,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.09",
+    "indices" : [ "logstash-openstack-2016.12.09", "logstash-logfiles-2016.12.09", "logstash-system-2016.12.09", "logstash-fabric-2016.12.09" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T06:01:39.294Z",
+    "start_time_in_millis" : 1484632899294,
+    "end_time" : "2017-01-17T06:07:46.669Z",
+    "end_time_in_millis" : 1484633266669,
+    "duration_in_millis" : 367375,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.10",
+    "indices" : [ "logstash-openstack-2016.12.10", "logstash-fabric-2016.12.10", "logstash-logfiles-2016.12.10", "logstash-system-2016.12.10" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T06:24:42.220Z",
+    "start_time_in_millis" : 1484634282220,
+    "end_time" : "2017-01-17T06:30:44.858Z",
+    "end_time_in_millis" : 1484634644858,
+    "duration_in_millis" : 362638,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.11",
+    "indices" : [ "logstash-system-2016.12.11", "logstash-openstack-2016.12.11", "logstash-fabric-2016.12.11", "logstash-logfiles-2016.12.11" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T06:43:13.380Z",
+    "start_time_in_millis" : 1484635393380,
+    "end_time" : "2017-01-17T06:50:31.131Z",
+    "end_time_in_millis" : 1484635831131,
+    "duration_in_millis" : 437751,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.12",
+    "indices" : [ "logstash-system-2016.12.12", "logstash-openstack-2016.12.12", "logstash-logfiles-2016.12.12", "logstash-fabric-2016.12.12" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T07:02:22.372Z",
+    "start_time_in_millis" : 1484636542372,
+    "end_time" : "2017-01-17T07:08:42.305Z",
+    "end_time_in_millis" : 1484636922305,
+    "duration_in_millis" : 379933,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.13",
+    "indices" : [ "logstash-system-2016.12.13", "logstash-logfiles-2016.12.13", "logstash-openstack-2016.12.13", "logstash-fabric-2016.12.13" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T07:20:05.641Z",
+    "start_time_in_millis" : 1484637605641,
+    "end_time" : "2017-01-17T07:27:21.729Z",
+    "end_time_in_millis" : 1484638041729,
+    "duration_in_millis" : 436088,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.14",
+    "indices" : [ "logstash-system-2016.12.14", "logstash-logfiles-2016.12.14", "logstash-fabric-2016.12.14", "logstash-openstack-2016.12.14" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T07:40:03.880Z",
+    "start_time_in_millis" : 1484638803880,
+    "end_time" : "2017-01-17T07:47:46.844Z",
+    "end_time_in_millis" : 1484639266844,
+    "duration_in_millis" : 462964,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.15",
+    "indices" : [ "logstash-logfiles-2016.12.15", "logstash-openstack-2016.12.15", "logstash-fabric-2016.12.15", "logstash-system-2016.12.15" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T08:00:31.642Z",
+    "start_time_in_millis" : 1484640031642,
+    "end_time" : "2017-01-17T08:08:07.033Z",
+    "end_time_in_millis" : 1484640487033,
+    "duration_in_millis" : 455391,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.16",
+    "indices" : [ "logstash-logfiles-2016.12.16", "logstash-fabric-2016.12.16", "logstash-openstack-2016.12.16", "logstash-system-2016.12.16" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T08:20:33.422Z",
+    "start_time_in_millis" : 1484641233422,
+    "end_time" : "2017-01-17T08:27:55.879Z",
+    "end_time_in_millis" : 1484641675879,
+    "duration_in_millis" : 442457,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.17",
+    "indices" : [ "logstash-logfiles-2016.12.17", "logstash-openstack-2016.12.17", "logstash-fabric-2016.12.17", "logstash-system-2016.12.17" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T08:29:03.195Z",
+    "start_time_in_millis" : 1484641743195,
+    "end_time" : "2017-01-17T08:37:46.025Z",
+    "end_time_in_millis" : 1484642266025,
+    "duration_in_millis" : 522830,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.18",
+    "indices" : [ "logstash-logfiles-2016.12.18", "logstash-fabric-2016.12.18", "logstash-openstack-2016.12.18", "logstash-system-2016.12.18" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T08:38:34.731Z",
+    "start_time_in_millis" : 1484642314731,
+    "end_time" : "2017-01-17T08:47:27.216Z",
+    "end_time_in_millis" : 1484642847216,
+    "duration_in_millis" : 532485,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.19",
+    "indices" : [ "logstash-system-2016.12.19", "logstash-openstack-2016.12.19", "logstash-logfiles-2016.12.19", "logstash-fabric-2016.12.19" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-01-17T08:48:13.202Z",
+    "start_time_in_millis" : 1484642893202,
+    "end_time" : "2017-01-17T08:55:34.352Z",
+    "end_time_in_millis" : 1484643334352,
+    "duration_in_millis" : 441150,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.20",
+    "indices" : [ "logstash-openstack-2016.12.20", "logstash-system-2016.12.20", "logstash-fabric-2016.12.20", "logstash-logfiles-2016.12.20" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T01:13:29.779Z",
+    "start_time_in_millis" : 1486689209779,
+    "end_time" : "2017-02-10T01:21:17.794Z",
+    "end_time_in_millis" : 1486689677794,
+    "duration_in_millis" : 468015,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.21",
+    "indices" : [ "logstash-system-2016.12.21", "logstash-openstack-2016.12.21", "logstash-fabric-2016.12.21", "logstash-logfiles-2016.12.21" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T01:21:51.074Z",
+    "start_time_in_millis" : 1486689711074,
+    "end_time" : "2017-02-10T01:28:11.933Z",
+    "end_time_in_millis" : 1486690091933,
+    "duration_in_millis" : 380859,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.22",
+    "indices" : [ "logstash-system-2016.12.22", "logstash-fabric-2016.12.22", "logstash-logfiles-2016.12.22", "logstash-openstack-2016.12.22" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T01:38:42.574Z",
+    "start_time_in_millis" : 1486690722574,
+    "end_time" : "2017-02-10T01:45:23.252Z",
+    "end_time_in_millis" : 1486691123252,
+    "duration_in_millis" : 400678,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.23",
+    "indices" : [ "logstash-system-2016.12.23", "logstash-logfiles-2016.12.23", "logstash-openstack-2016.12.23", "logstash-fabric-2016.12.23" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T01:58:12.246Z",
+    "start_time_in_millis" : 1486691892246,
+    "end_time" : "2017-02-10T02:06:40.274Z",
+    "end_time_in_millis" : 1486692400274,
+    "duration_in_millis" : 508028,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.24",
+    "indices" : [ "logstash-system-2016.12.24", "logstash-openstack-2016.12.24", "logstash-logfiles-2016.12.24", "logstash-fabric-2016.12.24" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T02:19:13.725Z",
+    "start_time_in_millis" : 1486693153725,
+    "end_time" : "2017-02-10T02:25:43.781Z",
+    "end_time_in_millis" : 1486693543781,
+    "duration_in_millis" : 390056,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.25",
+    "indices" : [ "logstash-system-2016.12.25", "logstash-logfiles-2016.12.25", "logstash-fabric-2016.12.25", "logstash-openstack-2016.12.25" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T02:38:15.835Z",
+    "start_time_in_millis" : 1486694295835,
+    "end_time" : "2017-02-10T02:45:40.969Z",
+    "end_time_in_millis" : 1486694740969,
+    "duration_in_millis" : 445134,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.26",
+    "indices" : [ "logstash-logfiles-2016.12.26", "logstash-fabric-2016.12.26", "logstash-openstack-2016.12.26", "logstash-system-2016.12.26" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T02:58:05.193Z",
+    "start_time_in_millis" : 1486695485193,
+    "end_time" : "2017-02-10T03:05:37.395Z",
+    "end_time_in_millis" : 1486695937395,
+    "duration_in_millis" : 452202,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.27",
+    "indices" : [ "logstash-logfiles-2016.12.27", "logstash-fabric-2016.12.27", "logstash-openstack-2016.12.27", "logstash-system-2016.12.27" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T03:18:09.822Z",
+    "start_time_in_millis" : 1486696689822,
+    "end_time" : "2017-02-10T03:25:58.263Z",
+    "end_time_in_millis" : 1486697158263,
+    "duration_in_millis" : 468441,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.28",
+    "indices" : [ "logstash-logfiles-2016.12.28", "logstash-openstack-2016.12.28", "logstash-system-2016.12.28", "logstash-fabric-2016.12.28" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T03:38:31.298Z",
+    "start_time_in_millis" : 1486697911298,
+    "end_time" : "2017-02-10T03:44:59.934Z",
+    "end_time_in_millis" : 1486698299934,
+    "duration_in_millis" : 388636,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.29",
+    "indices" : [ "logstash-logfiles-2016.12.29", "logstash-system-2016.12.29", "logstash-fabric-2016.12.29", "logstash-openstack-2016.12.29" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T03:57:17.264Z",
+    "start_time_in_millis" : 1486699037264,
+    "end_time" : "2017-02-10T04:03:58.737Z",
+    "end_time_in_millis" : 1486699438737,
+    "duration_in_millis" : 401473,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.30",
+    "indices" : [ "logstash-system-2016.12.30", "logstash-openstack-2016.12.30", "logstash-logfiles-2016.12.30", "logstash-fabric-2016.12.30" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T06:32:19.138Z",
+    "start_time_in_millis" : 1486708339138,
+    "end_time" : "2017-02-10T06:41:06.941Z",
+    "end_time_in_millis" : 1486708866941,
+    "duration_in_millis" : 527803,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  }, {
+    "snapshot" : "logstash_2016.12.31",
+    "indices" : [ "logstash-system-2016.12.31", "logstash-openstack-2016.12.31", "logstash-fabric-2016.12.31", "logstash-logfiles-2016.12.31" ],
+    "state" : "SUCCESS",
+    "start_time" : "2017-02-10T06:53:29.583Z",
+    "start_time_in_millis" : 1486709609583,
+    "end_time" : "2017-02-10T07:00:38.980Z",
+    "end_time_in_millis" : 1486710038980,
+    "duration_in_millis" : 429397,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 20,
+      "failed" : 0,
+      "successful" : 20
+    }
+  } ]
+}

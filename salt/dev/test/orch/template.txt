@@ -1,0 +1,3 @@
+hint: {{ pillar.defaults.hint }}
+env : {{ pillar.defaults.env }}
+someval: {{ pillar.cdos.mysql.hostip }}

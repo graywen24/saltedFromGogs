@@ -1,0 +1,20 @@
+# {{ pillar.defaults.hint }}
+
+dbc_dbname='maasdb'
+dbc_dbuser='maas'
+dbc_dbpass='{{ pillar.maas.dbpass }}'
+
+dbc_install='true'
+dbc_upgrade='true'
+dbc_remove='true'
+dbc_dbtype='pgsql'
+
+dbc_dbserver=''
+dbc_dbport=''
+dbc_dbadmin='postgres'
+dbc_basepath=''
+dbc_ssl='false'
+
+dbc_authmethod_admin='ident'
+dbc_authmethod_user='ident'
+

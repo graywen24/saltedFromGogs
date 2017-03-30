@@ -1,0 +1,5 @@
+# Initial fstab - to be overwritten later by salt
+
+/dev/sda2               swap                  swap      defaults                0 0
+/dev/sda3               /                     ext4      errors=remount-ro       0 1
+/dev/sda4               /var                  ext4      defaults,noatime        0 0

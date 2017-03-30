@@ -1,0 +1,6 @@
+name: debugcharm
+summary: "A charm to debug the juju environment"
+maintainer: "Clemens Perz <clemens@1-net.com.sg>"
+description: >
+  Debug stuff in a charms environment. Based on
+  Haw Loeung's test charm.

@@ -1,0 +1,6 @@
+pillar srv/
+salt  srv/
+extras  srv/
+nodebase srv/
+salt/base/salt/files/master.d etc/salt/
+

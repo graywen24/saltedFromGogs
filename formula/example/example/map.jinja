@@ -1,0 +1,35 @@
+{% set example = salt['grains.filter_by']({
+    'Debian': {
+        'pkg': 'example',
+        'service': 'example',
+        'conf_file': '/etc/example/example.conf',
+    },
+    'RedHat': {
+        'pkg': 'example',
+        'service': 'example',
+        'conf_file': '/etc/example/example.conf',
+    },
+}, grain='os_family', merge=salt['pillar.get']('example:lookup')) %}
+
+
+{% set example_config = salt['pillar.get']('example:config', {
+    'key': 'value',
+}, merge=True) %}
+
+{# If Lithium gets released then below code can be uncommentted because it is more DRY #}
+{#
+{% set example = salt['grains.filter_by']({
+    'default': {
+        'pkg': 'example',
+        'service': 'example',
+        'conf_file': '/etc/example/example.conf',
+        'config': {
+            'key': 'value',
+        },
+    },
+    'Debian': {
+    },
+    'RedHat': {
+    },
+}, grain='os_family', merge=salt['pillar.get']('example:lookup'), base='default') %}
+#}

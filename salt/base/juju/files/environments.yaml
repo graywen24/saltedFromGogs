@@ -1,0 +1,132 @@
+# This is the Juju config file, which you can use to specify multiple
+# environments in which to deploy. By default Juju ships with AWS
+# (default), HP Cloud, OpenStack, Azure, MaaS, Local and Manual
+# providers. See https://juju.ubuntu.com/docs for more information
+
+# An environment configuration must always specify at least the
+# following information:
+# - name (to identify the environment)
+# - type (to specify the provider)
+# In the following example the name is "myenv" and type is "ec2".
+# myenv:
+#    type: ec2
+
+# Values in <brackets> below need to be filled in by the user.
+# Optional attributes are shown commented out, with
+# a sample value or a value in <brackets>.
+
+# There are several settings supported by all environments, all of which
+# are optional and have specified default values. For more info, see the
+# Juju documentation.
+
+# The default environment is chosen when an environment is not
+# specified using any of the following, in descending order of precedence:
+#  1. -e or --environment command line parameter, passed after the command, e.g.
+#     $ juju add-unit -e myenv myservice
+#  2. By setting JUJU_ENV environment variable.
+#  3. Using the juju switch command like this:
+#     $ juju switch myenv
+#
+
+# You can control how Juju harvests machines by using the
+# provisioner-harvest-mode setting. Harvesting is a process wherein
+# Juju attempts to reclaim unused machines.
+#
+# Options are:
+#
+# Don't harvest any machines.
+# provisioner-harvest-mode: none
+#
+# Only harvest machines that Juju knows about and are dead.
+# provisioner-harvest-mode: destroyed
+#
+# Only harvest machines that Juju doesn't know about.
+# provisioner-harvest-mode: unknown
+#
+# Harvest both dead and unknown machines.
+# provisioner-harvest-mode: all
+
+default: exclusive
+
+environments:
+    # https://juju.ubuntu.com/docs/config-hpcloud.html
+    exclusive:
+        type: manual
+        # bootstrap-host holds the host name of the machine where the
+        # bootstrap machine agent will be started.
+        bootstrap-host: bootstrap-a1.ostack.nhb.1nc
+        # dataDir: /var/storage/juju
+        # bootstrap-user specifies the user to authenticate as when
+        # connecting to the bootstrap machine. It defaults to
+        # the current user.
+        # bootstrap-user: joebloggs
+        agent-metadata-url: file:///home/ubuntu/metadata/tools
+        # tools-metadata-url: file:///home/ubuntu/metadata/tools
+        # storage-listen-ip specifies the IP address that the
+        # bootstrap machine's Juju storage server will listen
+        # on. By default, storage will be served on all
+        # network interfaces.
+        # storage-listen-ip: 10.2.48.120
+
+        # storage-port specifes the TCP port that the
+        # bootstrap machine's Juju storage server will listen
+        # on. It defaults to 8040
+        # storage-port: 8040
+
+        # Whether or not to refresh the list of available updates for an
+        # OS. The default option of true is recommended for use in
+        # production systems.
+        #
+        enable-os-refresh-update: false
+    
+        # Whether or not to perform OS upgrades when machines are
+        # provisioned. The default option of false is set so that Juju
+        # does not subsume any other way the system might be
+        # maintained.
+        #
+        enable-os-upgrade: false
+        logging-config: <root>=TRACE
+    
+    # https://juju.ubuntu.com/docs/config-local.html
+    local:
+        type: local
+    
+        # root-dir holds the directory that is used for the storage files and
+        # database. The default location is $JUJU_HOME/<env-name>.
+        # $JUJU_HOME defaults to ~/.juju. Override if needed.
+        #
+        # root-dir: ~/.juju/local
+    
+        # storage-port holds the port where the local provider starts the
+        # HTTP file server. Override the value if you have multiple local
+        # providers, or if the default port is used by another program.
+        #
+        # storage-port: 8040
+    
+        # network-bridge holds the name of the LXC network bridge to use.
+        # Override if the default LXC network bridge is different.
+        #
+        #
+        # network-bridge: lxcbr0
+    
+        # The default series to deploy the state-server and charms on.
+        # Make sure to uncomment the following option and set the value to
+        # precise or trusty as desired.
+        #
+        # default-series: trusty
+    
+        # Whether or not to refresh the list of available updates for an
+        # OS. The default option of true is recommended for use in
+        # production systems, but disabling this can speed up local
+        # deployments for development or testing.
+        #
+        # enable-os-refresh-update: true
+    
+        # Whether or not to perform OS upgrades when machines are
+        # provisioned. The default option of true is recommended for use
+        # in production systems, but disabling this can speed up local
+        # deployments for development or testing.
+        #
+        # enable-os-upgrade: true
+    
+

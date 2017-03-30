@@ -1,0 +1,47 @@
+declare steps
+
+outputter() {
+  tput setaf 2
+  sed 's/^/    /'
+  tput setaf 9
+}
+
+usage() {
+
+  scriptname=$(basename $0)
+  echo "Usage: $scriptname step"
+  echo "$scriptname: $description"
+  echo "Steps available are:"
+
+  IFS=':'
+  count=0
+  for step in "${steps[@]}"
+  do
+    ((count++))
+    parts=(${step})
+    printf " %d. %-12s: %s\n" $count "${parts[0]}" "${parts[1]}"
+  done
+  IFS=' '
+}
+
+action() {
+
+  if [ "$1" = "$STEP" ]; then
+    return 0
+  fi
+  return 1
+
+}
+
+minit() {
+
+  steps[10]="help:show this helptext"
+
+  if [ -z "$1" ]; then
+    usage
+    exit 1
+  fi
+
+}
+
+STEP=$1

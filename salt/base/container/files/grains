@@ -1,0 +1,8 @@
+{% set hints = salt['pillar.get']('hints', {}) %}
+
+{%- if hints|length > 0 %}
+hints:
+{%- for hint, value in hints.iteritems() %}
+  {{ hint }}: {{ value }}
+{%- endfor %}
+{% endif %}

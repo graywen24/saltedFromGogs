@@ -1,0 +1,26 @@
+# {{ pillar.defaults.hint }}
+
+127.0.0.1   localhost
+{% if 'ostack' in config.roles -%}
+127.0.1.1  {{ config.network.ostack.fqdn }} {{ config.hostname }}
+{% else -%}
+{{ config.network.manage.ip4 }} {{ config.network.manage.fqdn }} {{ config.hostname }}
+{% endif %}
+
+# important infrastructure resources
+{% for entry, address in salt.pillar.get('defaults:hostsfile', {}).iteritems() -%}
+{{ address }} {{ entry }}
+{% endfor -%}
+
+
+{% if 'cdosapp' in config.roles -%}
+
+127.0.0.1 galileo.cloud
+127.0.0.1 helionode.cloud
+127.0.0.1 exosphere.cloud
+127.0.0.1 stratosphere.cloud
+127.0.0.1 heliotime.cloud
+{{ salt.pillar.get('cdos:mysql:hostip', '127.0.0.1') }} sphereds.cloud
+127.0.0.1 session.cloud
+
+{% endif %}

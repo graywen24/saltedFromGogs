@@ -1,0 +1,41 @@
+
+# Create a temporary root directory for a simple webserver so we
+# can server the installation files locally
+
+WEBSERVER=0
+
+wsstart() {
+
+  if [ $(pgrep -c -f SimpleHTTPServer) -gt 0 ]; then
+    echo "Webserver with pid $(pgrep -f SimpleHTTPServer) is already running!"
+    return
+  fi
+
+  if [ ! -d /tmp/web ]; then
+    mkdir -p /tmp/web
+    ln -s /var/storage/repo-a1.cde.1nc/repos/aptly/public/cde /tmp/web/cde
+    ln -s /srv/salt/base/container/files/bootstrap /tmp/web/salt
+    ln -s /srv/salt/base/repo/files/maas /tmp/web/maas
+  fi
+  rm -f /tmp/web/server.log
+  cd /tmp/web; python -m SimpleHTTPServer 80 2>/tmp/web/server.log &
+  WEBSERVER=$!
+  sleep 1
+}
+
+wsstop() {
+
+  if [ $WEBSERVER -gt 0 ]; then
+    kill $WEBSERVER
+  fi
+
+}
+
+wskill() {
+
+  if [ $(pgrep -c -f SimpleHTTPServer) -eq 0 ]; then
+    echo "No webserver processes found!"
+    return
+  fi
+  kill $(pgrep -f SimpleHTTPServer)
+}

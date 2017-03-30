@@ -1,0 +1,625 @@
+#!/usr/bin/env bash
+
+PGCHARS='|/-\|/-\'
+STATUS=""
+SHOPTS="dthnqvr:a:o:"
+LOOPTS="debug,test,dryrun,simple,quiet,verbose,testdata:,host:,port:,retention:,avail:,open:"
+CHANGERS="sdelete ibackup idelete iclose iopen"
+LOGFILE="$(dirname $0)/emanage.log"
+
+# param defaults
+eshost=192.168.128.106
+esport=9200
+test=0
+testdata="$(dirname $0)/testdata"
+debug=0
+dryrun=0
+quiet=0
+verbose=0
+counter=0
+
+retention_days=180  # 6 months
+avail_days=60       # 2 months
+open_days=5         # 5 days
+
+# helpgroups
+readonly g_indx=0
+readonly g_snap=1
+readonly g_etra=2
+readonly g_misc=3
+
+testme()
+{
+  _help_=("Test something." $g_misc); $help
+
+  _waitforgreen
+}
+
+_progress()
+{
+  local info=$1
+  counter=$[counter + 1]
+
+  case $step in
+    7) step=0 ;;
+    *) step=$[step + 1] ;;
+  esac
+
+  info="${PGCHARS:$step:1} $info"
+  echo -n $info
+  tput cub ${#info}
+}
+
+_wwget() {
+
+  local callid=$1
+  local uri=$2
+  local params=$3
+  local cmd=""
+
+  printf -v cmd $'wget -q -O - %s \'http://%s:%s/%s\'' "$params" $eshost $esport "$uri"
+
+  if [ $dryrun -eq 1 ] && [[ $CHANGERS =~ .*$callid.* ]]; then
+    if [ $verbose -eq 1 ]; then
+      echo $cmd
+    fi
+    return
+  fi
+
+  if [ $test -eq 1 ]; then
+    if [ -f $testdata/$callid ]; then
+      cat $testdata/$callid
+    else
+      if [ $verbose -eq 1 ]; then
+        echo $cmd
+      fi
+    fi
+    return
+  fi
+
+  eval "$cmd"
+
+}
+
+_waitforgreen() {
+
+  # wait until all indices available
+  local sleepval=1
+  if [ $dryrun -eq 1 ]; then
+    sleepval=0
+  fi
+
+  sleep $((5*$sleepval))
+
+  local time_1=$(date "+%s")
+  message="Wait until cluster becomes green ... "
+  echo -n $message | _writelog
+
+  tput civis
+  tput cuf 1
+
+  while [ "$STATUS" != "green" ]
+  do
+    sleep $((2*$sleepval))
+    _getstatus
+    _progress $STATUS
+  done
+
+  tput cnorm
+
+  local time_2=$(date "+%s")
+  echo "ready after $((time_2-time_1)) seconds" | _writelog
+
+  sleep $((10*$sleepval))
+
+}
+
+_writelog() {
+
+  if [ $quiet -eq 1 ]; then
+    tee -a $LOGFILE > /dev/null
+  else
+    tee -a $LOGFILE
+  fi
+
+}
+
+_run_action() {
+
+  _checkparam "action" $ACTION
+  if [ $debug -eq 1 ]; then
+      set -x
+  fi
+
+  action=$(typeset -F | awk -v action="$ACTION" '$3 == action && $3 !~ /^_.*/ { print $3 }')
+  if [ -e "$action" ]; then
+    _usage $0
+  fi
+
+  $action
+
+}
+
+_datecalc() {
+
+  current_index_date=$(ilist 0 | awk '{ print $2 }' | cut -d'-' -f3 | sort -u | tail -1)
+
+  retention_date=$(date -d "${current_index_date//./-} - $retention_days days"  '+%Y.%m.%d')
+  avail_date=$(date -d "${current_index_date//./-} - $avail_days days" '+%Y.%m.%d')
+  open_date=$(date -d "${current_index_date//./-} - $open_days days" '+%Y.%m.%d')
+
+}
+
+# more variables depending ont the mode we are running in
+_populate_vars()
+{
+
+  if [ $test -eq 1 ]; then
+    INDICES_PATH="$testdata/findices"
+    BACKUPS_PATH="$testdata/fbackups"
+    return
+  fi
+
+  PATHDATA=$(awk '/path.data:*/ { print $2}' /etc/elasticsearch/elasticsearch.yml)
+  CLUSTER=$(awk '/cluster.name:*/ { print $2}' /etc/elasticsearch/elasticsearch.yml)
+  INDICES_PATH="${PATHDATA}/${CLUSTER}/nodes/0/indices"
+  BACKUPS_PATH="${PATHDATA}/nfsbackup/backup/indices"
+
+}
+
+
+_usage() {
+
+  declare -a _help_
+  declare -A _helptext
+  local _helptmp=""
+
+  help=return
+  script=$(basename $1)
+  actions=$(typeset -F | cut -d" " -f3 | grep -v "_" | sort)
+
+  for action in $actions
+  do
+    $action
+    idx=${_help_[1]}
+    printf -v _helptmp "    %-20s - %s\n"  "$action ${_help_[2]}" "${_help_[0]}"
+
+    _helptext[$idx]="${_helptext[$idx]}${_helptmp}"
+    _help_=""
+
+  done
+
+  cat <<EOL 1>&2
+Usage: $script action [PATTERN]
+Where valid PATTERNs are
+
+     2014.12          Match all of December 2014
+  or 2014.12.0        Match all of December 2014
+  or 2014.12.01       Match first of December 2014
+  or 2014.12.0[1-5]   Match first to fifth of December 2014
+
+Actions:
+  Working with Indices:
+${_helptext[$g_indx]}
+  Working with Snapshots:
+${_helptext[$g_snap]}
+  Combined actions:
+${_helptext[$g_etra]}
+  Miscellaneous:
+${_helptext[$g_misc]}
+Options:
+  -r|--retention  - maxmal retention days after which backups will be removed [$retention_days days]
+  -a|--avail      - days a closed index is available in the server until backed up and removed [$avail_days days]
+  -o|--open       - days indexes are open and active in the server and after which they get closed [$open_days days]
+  --host          - ip address of the host to connect to
+  --port          - portnumber elasticsearch is listening on
+  -n              - dry run with no changes: instead of doing final calls, print the commands that would be send
+  -t              - run in test mode, i.e. use testdata instead of real calls
+                    to the elasticsearch backend
+  -d              - debug mode, i.e. activate the -x shell setting
+  -q              - quiet mode, i.e. no output when doing backups
+  -v              - verbose test mode - echo commands that would be issued to the elastic server
+EOL
+
+}
+
+_ffget() {
+
+  local callid=$1
+  local path=$2
+
+  local cmd="find $path -maxdepth 1"
+
+  if [ $test -eq 1 ]; then
+    if [ -f $testdata/$callid ]; then
+      cat $testdata/$callid
+    else
+      if [ $verbose -eq 1 ]; then
+        echo $cmd
+      fi
+    fi
+    return
+  fi
+
+  $cmd
+
+}
+
+_getstatus() {
+
+  if [ $test -eq 1 ]; then
+    STATUS=blue
+    if [ $counter -gt 15 ]; then
+      STATUS=green
+    fi
+    stinfo=${STATUS:0:1}
+    return
+  fi
+
+  STATUS=$(_wwget health '_cluster/health?' | jq -r .status)
+  stinfo=${STATUS:0:1}
+
+}
+
+dtest() {
+
+  _help_=("Test what is going on when calculating dates." $g_misc); $help
+
+  _datecalc
+  #_slistf | sort | awk -v rtd=${retention_date} '$5 == "success" && $1 < rtd { print $4 }' | uniq
+  #to_be_deleted=$(_slistf | sort | awk -v rtd=${retention_date} '$5 == "success" && $1 < rtd { print $4 }' | uniq)
+
+  # _ilistf | sort | awk -v avd=${avail_date} '$5 == "closed" && $1 < avd { print $1 }' | uniq
+  #to_be_backedup=$(_ilistf | sort | awk -v avd=${avail_date} '$5 == "closed" && $1 < avd { print $1 }' | uniq)
+
+  # _ilistf | sort | awk -v opd=${open_date} '$5 != "closed" && $1 < opd { print $1 }' | uniq
+
+}
+
+_slistf() {
+
+  local buffer=$(_ffget fbackups $BACKUPS_PATH | awk -F "/" '{ print "["$NF"]=\"filesonly\"" }' | sort)
+  eval declare -A fidx=($buffer)
+
+  buffer=$(_wwget slist "_snapshot/esearch_backup/_all?pretty" | jq -r -c '.snapshots[]|"[\(.indices[])]=\(.state)"' | sort)
+  eval declare -A bidx=($buffer)
+
+  for k in "${!bidx[@]}"
+  do
+    if [ -e "${fidx[$k]}" ]; then
+      fidx[$k]="_${bidx[$k],,}_"
+    else
+      fidx[$k]=${bidx[$k],,}
+    fi
+  done
+
+  for k in "${!fidx[@]}"
+  do
+    local itmp=${k#*-}
+    local idate=${itmp#*-}
+    local itype=${itmp%%-*}
+    if [[ ! $itype =~ logfiles|openstack|fabric|system ]]; then
+      continue
+    fi
+
+    echo "$idate $itype $k logstash_$idate ${fidx[$k]}"
+  done
+
+}
+
+# see snapshot list
+slist() {
+
+  _help_=("List snapshots known by the server" $g_snap "[PATTERN]"); $help
+  _wwget slist "_snapshot/esearch_backup/_all?pretty" | jq -r -c '.snapshots[]|.snapshot+" - "+.state+" - "+.start_time' | awk -v pattern=${PATTERN} '$1 ~ pattern { print $0 }'
+
+}
+
+slista() {
+
+  _help_=("Compile a comprehensive list of all snapshot information" $g_snap); $help
+  _slistf | awk '{ printf "%-12s %-15s %-35s %-22s %-10s %10s %10s\n", $1, $2, $3, $4, $5, $6, $7, $8, $9}' | sort
+
+}
+
+# delete a snapshot
+sdelete() {
+
+  _help_=("Delete snapshots exceeding retention or matching PATTERN" $g_snap "[PATTERN]"); $help
+
+  local idxlist=""
+
+  if [ "${PATTERN:-none}" = "none" ]; then
+    _datecalc
+    echo "Deleting all snapshots older than $retention_date" | _writelog
+    idxlist=$(_slistf | sort | awk -v rtd=${retention_date} '$5 == "success" && $1 < rtd { print $4 }' | sort -u)
+  else
+    _checkparam "pattern" $PATTERN
+    idxlist=$(_wwget slist "_snapshot/esearch_backup/_all?pretty" | jq -r -c '.snapshots[]|.snapshot' | grep ${PATTERN})
+  fi
+
+  if [ "${idxlist:-none}" = "none" ]; then
+    echo "No matching snapshots found to delete." | _writelog
+    return
+  fi
+
+  for idx in $idxlist;
+  do
+    echo "Deleting ${idx}: $(_wwget sdelete "_snapshot/esearch_backup/${idx}" "--method=DELETE")" | _writelog
+  done
+}
+
+# comprehensive list of all indexes - on disk, open, closed but avail, backed up
+_ilistf() {
+
+  local buffer=$(_ffget findices $INDICES_PATH | awk -F "/" '$NF ~ /logstash-.*/ { print "["$NF"]=\"filesonly\"" }' | sort)
+  eval declare -A fidx=($buffer)
+
+  buffer=$(_wwget ilist '_cat/indices?v' | awk '$2 ~ /logstash-.*/ { print "["$2"]=\""$1,$5,$7"\"" }' | sort)
+  eval declare -A widx=($buffer)
+
+  buffer=$(_wwget ilistc "_cluster/state/blocks?pretty" | jq -r '.blocks.indices|to_entries| .[]| .key+" "+.value["4"].description' | awk '{print "["$1"]=\""$3"\""}' | sort )
+  eval declare -A wcidx=($buffer)
+
+  for k in "${!widx[@]}"
+  do
+    if [ -e "${fidx[$k]}" ]; then
+      fidx[$k]="_${widx[$k],,}_"
+    else
+      fidx[$k]=${widx[$k],,}
+    fi
+  done
+
+  for k in "${!wcidx[@]}"
+  do
+    if [ -e "${fidx[$k]}" ]; then
+      fidx[$k]="_${wcidx[$k],,}_"
+    else
+      fidx[$k]=${wcidx[$k],,}
+    fi
+  done
+
+  for k in "${!fidx[@]}"
+  do
+    local itmp=${k#*-}
+    local idate=${itmp#*-}
+    local itype=${itmp%%-*}
+    if [[ ! $itype =~ logfiles|openstack|fabric|system ]]; then
+      continue
+    fi
+
+    echo "$idate $itype $k logstash_$idate ${fidx[$k]}"
+  done
+
+}
+
+# backup a set of indices given as parameter
+_ibackupfunc() {
+
+  INDICES=$1
+
+  local snapshotlist="$(_slistf | cut -d' ' -f1 | sort -u)"
+
+  for day in $INDICES
+  do
+    local time_1=$(date "+%s")
+    echo "--- start $day"
+
+    if [[ "$snapshotlist" =~ .*$day ]]; then
+      echo "Snapshot for $day has already been created! Skipping." | _writelog
+      continue
+    fi
+
+    printf -v body '{ "indices": "logstash-*-%s", "ignore_unavailable": "true", "include_global_state": false }' $day
+    local uri="_snapshot/esearch_backup/logstash_${day}?wait_for_completion=true&pretty"
+
+    # Open the indices we want to backup
+    iopen $day
+
+    # start the backup of these indices
+    echo "Backing up logstash-*-${day} ... " $(_wwget ibackup $uri "--method=put --body-data='${body}'" | jq -r -c '.snapshot|"\(.snapshot) \(.state) \(.duration_in_millis/1000)"') | _writelog
+
+    iclose $day
+
+    local time_2=$(date "+%s")
+    echo "--- done $day in $((time_2-time_1)) seconds"
+
+  done
+}
+
+ibackup() {
+
+  _help_=("Backup all indices scheduled or matching PATTERN" $g_indx "[PATTERN]"); $help
+
+  local idxlist=""
+
+  if [ "${PATTERN:-none}" = "none" ]; then
+    _datecalc
+    echo "Backing up indices older than $avail_date" | _writelog
+    idxlist=$(_ilistf | sort | awk -v avd=${avail_date} '$5 == "closed" && $1 < avd { print $1 }' | sort -u)
+  else
+    _checkparam "pattern" $PATTERN
+    idxlist=$(_ilistf | sort | awk -v pattern="${PATTERN}.*" '$1 ~ pattern { print $1 }' | sort -u)
+  fi
+
+  if [ "${idxlist:-none}" = "none" ]; then
+    echo "No matching indexes found that need a backup." | _writelog
+    return
+  fi
+
+  _ibackupfunc "$idxlist"
+}
+
+ilist() {
+
+  _help_=("List information about all currently open indices" $g_indx); $help
+
+  print_header=${1:-1}
+  if [ "$print_header" = "1" ]; then
+    _wwget ilist '_cat/indices?v' | awk '{if (NR < 2) print $0 > "/dev/stderr"; else print $0}' | sort -k2.1
+    return
+  fi
+
+  _wwget ilist '_cat/indices?v' | awk '{if (NR > 1) print $0 }' | sort -k2.1
+
+}
+
+ilistc() {
+
+  _help_=("List information about closed indices available for opening in the server" $g_indx); $help
+  _wwget ilistc "_cluster/state/blocks?pretty" | jq -r '.blocks.indices|to_entries| .[]| .key+" - "+.value["4"].description' | sort
+}
+
+ilista() {
+
+  _help_=("Compile a comprehensive list of all active indices" $g_indx); $help
+  _ilistf | awk '{ printf "%-12s %-15s %-35s %-22s %-10s %10s %10s\n", $1, $2, $3, $4, $5, $6, $7, $8, $9}' | sort
+
+}
+
+iopen() {
+
+  _help_=("Open all indices matching PATTERN" $g_indx PATTERN); $help
+
+  local pattern=${1:-$PATTERN}
+
+  _checkparam "pattern" $pattern
+  echo -n "Open the indices for $day ... " | _writelog
+  _wwget iopen "logstash-*-${pattern}*/_open" "--method=post" | _writelog
+  echo | _writelog
+
+  # wait until all indices available
+  _waitforgreen
+
+}
+
+iclose() {
+
+  _help_=("Close all indices matching PATTERN" $g_indx PATTERN); $help
+
+  local idxlist=""
+  local pattern=${1:-$PATTERN}
+
+  if [ "${pattern:-none}" = "none" ]; then
+    _datecalc
+    echo "Closing indices older than $open_date" | _writelog
+    idxlist=$(_ilistf | sort | awk -v opd=${open_date} '$5 != "closed" && $1 < opd { print $1 }' | uniq)
+  else
+    _checkparam "pattern" $pattern
+    echo -n "Closing the indices for pattern ${pattern} ... " | _writelog
+    _wwget iclose "logstash-*-${pattern}*/_close" "--method=post" | _writelog
+    echo | _writelog
+    return
+  fi
+
+  if [ "${idxlist:-none}" = "none" ]; then
+    echo "No matching indices found to close." | _writelog
+    return
+  fi
+
+  for idx in $idxlist;
+  do
+    echo -n "Closing the indices for ${idx} ... " | _writelog
+    _wwget iclose "logstash-*-${idx}*/_close" "--method=post" | _writelog
+    echo | _writelog
+  done
+
+
+}
+
+idelete() {
+
+  _help_=("Delete indices exceeding availability or matching PATTERN" $g_indx "[PATTERN]"); $help
+
+  local idxlist=""
+  local pattern=${1:-$PATTERN}
+
+  if [ "${pattern:-none}" = "none" ]; then
+    _datecalc
+    echo "Deleting indices older than $avail_date" | _writelog
+    idxlist=$(_ilistf | sort | awk -v avd=${avail_date} '$5 == "closed" && $1 < avd { print $1 }' | sort -u)
+  else
+    _checkparam "pattern" $pattern
+    idxlist=$(_ilistf | awk -v pattern="${pattern}" '$3 ~ pattern {print $1}' | sort -u )
+  fi
+
+  if [ "${idxlist:-none}" = "none" ]; then
+    echo "No matching indices found to delete." | _writelog
+    return
+  fi
+
+  local snapshotlist="$(_slistf | cut -d' ' -f1 | sort -u)"
+
+  for idx in $idxlist;
+  do
+    if [[ ! "$snapshotlist" =~ .*$idx ]]; then
+      echo "ERROR: No snapshot for $idx found - skip deletion! You should investigate this! Possible loss of data!" | _writelog
+      continue
+    fi
+    echo -n "Deleting index ${idx}: " | _writelog
+    _wwget idelete "logstash-*${idx}*" "--method=DELETE" | _writelog
+    echo | _writelog
+  done
+
+}
+
+maintain() {
+
+  _help_=("Run daily maintenance: backup, close, delete ..." $g_etra); $help
+
+  echo "== starting maintenance ... " | _writelog
+
+  # first: delete old snapshots after max retention period
+  sdelete
+
+  # second: backup indices availability period ended
+  ibackup
+
+  # third: delete indices after availability period
+  idelete
+
+  # forth: close indices when leaving open period
+  iclose
+
+  echo "== done maintenance." | _writelog
+}
+
+_checkparam() {
+  if [ -e $2 ]; then
+    echo "Error: need to specify $1!"
+    _usage $0
+    exit 1
+  fi
+}
+
+options=$(getopt -o $SHOPTS -l $LOOPTS -- "$@")
+if [ $? -ne 0 ]; then
+    _usage $0
+    exit 1
+fi
+eval set -- "$options"
+
+while true
+do
+    case "$1" in
+    -h|--help)      _usage $0 && exit 0;;
+    -d|--debug)     debug=1; shift 1;;
+    -q|--quiet)     quiet=1; shift 1;;
+    -v|--verbose)   verbose=1; shift 1;;
+    -t|--test)      test=1; shift 1;;
+    -n|--dryrun)    dryrun=1; shift 1;;
+    -r|--retention) retention_days=$2; shift 2;;
+    -a|--avail)     avail_days=$2; shift 2;;
+    -o|--open)      open_days=$2; shift 2;;
+    --testdata)     testdata=$2; shift 2;;
+    --host)         eshost=$2; shift 2;;
+    --port)         esport=$2; shift 2;;
+    --)             shift 1; break ;;
+    *)              break ;;
+    esac
+done
+
+
+ACTION=$1
+PATTERN=$2
+_run_action

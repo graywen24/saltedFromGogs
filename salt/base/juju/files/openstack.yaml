@@ -1,0 +1,108 @@
+ceph:
+    monitor-count: 3
+    fsid: 6908d7cc-016f-4a2a-9d49-e5426cf0efa7
+    monitor-secret: AQC1KQFWoMefERAArlAkbFbkVQbG79QYri63Lg==
+    osd-devices: /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg /dev/sdh /dev/sdi
+    osd-journal: /dev/sdj /dev/sdk
+    osd-reformat: "yes"
+    osd-journal-size: 200000
+    ceph-public-network: 10.2.48.0/20
+    ceph-cluster-network: 10.2.64.0/20
+    use-syslog: True
+
+ceph-osd:
+    osd-devices: /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg /dev/sdh /dev/sdi
+    osd-journal: /dev/sdj /dev/sdk
+    osd-reformat: "yes"
+    osd-journal-size: 200000
+    ceph-public-network: 10.2.48.0/20
+    ceph-cluster-network: 10.2.64.0/20
+    use-syslog: True
+
+rabbitmq-server:
+    ha-bindiface: eth1
+    ha-vip-only: False
+    use-syslog: True
+
+nova-compute:
+    enable-live-migration: True
+    enable-resize: True
+    migration-auth-type: 'ssh'
+    # https://ceph.com/docs/firefly/rbd/rbd-openstack/#configuring-nova
+    # config-flags: 'libvirt_inject_password=false,libvirt_inject_key=false,libvirt_inject_partition=-2'
+#    config-flags: 'cpu_allocation_ratio=3.0,ram_allocation_ratio=2.0,vncserver_listen=0.0.0.0,novncproxy_base_url=http://172.24.0.43:6080/vnc_auto.html'
+    use-syslog: True
+
+percona-cluster:
+    root-password: nhb@1net
+    sst-password: nhb@1net
+    max-connections: 5000
+    dataset-size: '75%'
+    access-network: 10.2.48.0/20
+    vip: 10.2.48.50
+    vip_iface: eth1
+    vip_cidr: 20
+    ha-bindiface: eth1
+
+keystone:
+    admin-password: nhbC10ud!
+    admin-token: nhbC10ud!
+    vip: 10.2.48.51
+    ha-bindiface: eth1
+    use-https: "no"
+    https-service-endpoints: "False"
+    os-admin-network: 10.2.48.0/20
+    os-internal-network: 10.2.48.0/20
+    os-public-network: 10.2.48.0/20
+    use-syslog: True
+
+nova-cloud-controller:
+    network-manager: Neutron
+    quantum-security-groups: "yes"
+    config-flags: 'osapi_max_limit=30000'
+    vip: 10.2.48.52
+    ha-bindiface: eth1
+    os-admin-network: 10.2.48.0/20
+    os-internal-network: 10.2.48.0/20
+    os-public-network: 10.2.48.0/20
+    use-syslog: True
+
+quantum-gateway:
+    instance-mtu: 1350
+    ha-legacy-mode: true
+    ha-bindiface: eth1
+    ext-port: eth2
+    use-syslog: True
+
+glance:
+    ceph-osd-replication-count: 3
+    vip: 10.2.48.53
+    ha-bindiface: eth1
+    os-admin-network: 10.2.48.0/20
+    os-internal-network: 10.2.48.0/20
+    os-public-network: 10.2.48.0/20
+    use-syslog: True
+
+cinder:
+    block-device: "None"
+    ceph-osd-replication-count: 3
+    glance-api-version: 2
+    config-flags: 'osapi_max_limit=30000'
+    vip: 10.2.48.54
+    ha-bindiface: eth1
+    os-admin-network: 10.2.48.0/20
+    os-internal-network: 10.2.48.0/20
+    os-public-network: 10.2.48.0/20
+    use-syslog: True
+
+openstack-dashboard:
+    vip: 10.2.48.55
+    ha-bindiface: eth1
+    secret: 'ubuntu'
+    use-syslog: True
+    neutron-network-vpn: True
+    neutron-network-lb: True
+    neutron-network-firewall: True
+
+hacluster-mysql:
+    corosync_transport: 'udpu'
